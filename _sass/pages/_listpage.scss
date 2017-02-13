@@ -1,0 +1,26 @@
+.listview-page {
+	ul {
+		li {
+			margin-bottom: 65px;
+		}
+	}
+	h6 {
+		&.sub-headline {
+			margin-bottom:10px;
+			margin-top: 0px;
+			@include screen-xs {
+				margin-top: 10px;
+			}
+			
+		}
+	}
+
+	h2 {
+		margin-top:0px;
+	}
+	
+	.btn-white {
+		padding: 15px 20px;
+	}
+	
+}

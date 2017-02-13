@@ -1,0 +1,47 @@
+
+.slick-dots {
+	bottom: 75px;
+	right: 500px;
+	width: auto;
+	z-index: 50;
+	@include screen-ltmd {
+		bottom: 15px;
+	}
+	@include screen-xs {
+		right: 62%;
+	}
+	@include screen-xxs {
+		right: initial;
+		left: 14px;
+	}
+	li {
+		display: block;
+		@include screen-ltmd {
+			display: inline-block;
+		}
+		@include screen-xs {
+			display: inline-block;
+		}
+		@include screen-xxs {
+			margin: 0 3px;
+		}
+		button {
+			&:before {
+				font-size: 17px;
+				color: #ffffff;
+				opacity: 0.5;
+			}
+		}
+		&.slick-active {
+			button {
+				&:before {
+					color: $scarlet;
+					opacity: 1.0;
+				}
+			}
+		}
+	}
+}
+
+
+

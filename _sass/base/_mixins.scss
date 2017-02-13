@@ -1,0 +1,95 @@
+@mixin red-anchor {
+  color: $scarlet;
+  border-bottom: 1px dotted $scarlet;
+  transition: $transition;
+  &:hover {
+    color: $dark-scarlet;
+    border-bottom: 1px dotted $dark-scarlet;
+    text-decoration: none;
+  }
+}
+
+@mixin input {
+  background: #ffffff;
+  border-radius: 0px;
+  padding: 20px 15px;
+  border: 0px;
+  border-bottom: 2px solid #dcdbdb;
+  font-style: italic;
+  font-weight: 300;
+}
+
+
+// Media Queries
+
+@mixin screen-xxs {
+  @media (#{$screen-xxs}) {
+    @content;
+  }
+}
+
+@mixin screen-xs {
+  @media (#{$screen-xs}) {
+    @content;
+  }
+}
+
+@mixin screen-sm {
+  @media (#{$screen-sm}) {
+    @content;
+  }
+}
+
+@mixin screen-md {
+  @media (#{$screen-md}) {
+    @content;
+  }
+}
+
+@mixin screen-lg {
+  @media (#{$screen-lg}) {
+    @content;
+  }
+}
+
+@mixin screen-xl {
+  @media (#{$screen-xl}) {
+    @content;
+  }
+}
+
+@mixin screen-ltmd  {
+  @media (#{$screen-ltmd}) {
+    @content;
+  }
+}
+
+@mixin screen-ltlg  {
+  @media (#{$screen-ltlg}) {
+    @content;
+  }
+}
+
+@mixin screen-ltxl  {
+  @media (#{$screen-ltxl}) {
+    @content;
+  }
+}
+
+@mixin screen-gtxs  {
+  @media (#{$screen-gtxs}) {
+    @content;
+  }
+}
+
+@mixin screen-gtsm  {
+  @media (#{$screen-gtsm}) {
+    @content;
+  }
+}
+
+@mixin screen-gtmd  {
+  @media (#{$screen-gtmd}) {
+    @content;
+  }
+}

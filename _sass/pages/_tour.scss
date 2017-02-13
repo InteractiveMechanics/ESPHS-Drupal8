@@ -1,0 +1,151 @@
+.tour-page {
+	position: relative;
+
+	.padded-box {
+		box-sizing: content-box;
+		padding: 60px 45px;
+		height: 100%;
+		margin-bottom: 5px;
+		@include screen-xs {
+			padding: 60px 30px;
+			height: 100%;
+		}
+	}
+
+	.modal, .modal-backdrop {
+    	position: absolute !important;
+    	left: auto;
+    	height: 100%;
+    	background-color: transparent;
+    	@include screen-xs {
+    		position: relative !important;
+    		padding-right: 0px !important;
+    	}
+	}
+	.modal-dialog {
+		width: 33%;
+		float: right;
+		right: 45px;
+		margin-top: 40px;
+		@include screen-xs {
+			width: 100%;
+			right: 0px;
+		}
+	}
+
+	.modal-body {
+		padding: 0px;
+		.iframe-wrapper {
+			height: 250px;
+			overflow: hidden;
+		}
+/*
+		iframe {
+			width: 100%;
+			height: 100%;
+		}
+		
+		
+*/
+		#street-view {
+			width: 100%;
+			height: 100%;
+		}
+	}
+	
+
+	.modal-content {
+		border-radius: 0px;
+		border: none;
+	}
+
+	.modal-text-wrapper {
+		padding: 15px 30px 30px 30px;
+		height: 275px;
+		overflow-x: scroll;
+
+	}
+}
+
+#prison-map {
+	width: 100%;
+}
+
+.marker {
+	// NEED MARKER SVG
+	svg {
+		fill: #ffffff;
+	}
+	z-index: 1053;
+	background-color: transparent;
+	border: none;
+	transition: all 0.25s linear;
+	position: absolute;
+	&:hover {
+		svg {
+			fill: $scarlet;
+		}
+		
+	}
+	&:focus {
+		outline: none;
+		fill: $scarlet;
+	}
+	
+}
+
+.tour-modal-active {
+	svg {
+	fill: $scarlet;
+	}
+}
+
+
+#marker-1 {
+	top: 12%;
+    left: 42%;
+}
+
+#marker-2 {
+	top: 20%;
+    left: 47.5%;
+}
+
+#marker-3 {
+	top: 30%;
+    left: 71%;
+}
+
+#marker-4 {
+	top: 31%;
+    left: 43%;
+}
+
+#marker-5 {
+	top: 44%;
+    left: 44%;
+}
+
+#marker-6 {
+	top: 83%;
+    left: 60%;
+}
+
+#marker-7 {
+	top: 68%;
+    left: 26%;
+}
+
+#marker-8 {
+	top: 30%;
+    left: 16%;
+}
+
+#marker-9 {
+	top: 16%;
+    left: 29%;
+}
+
+.modal-backdrop {
+	display: none;
+}

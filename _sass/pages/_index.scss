@@ -1,0 +1,337 @@
+ .jumbotron {
+	border-radius:0px !important;
+	margin-bottom:0px;
+	height:650px;
+}
+
+.watch-preview {
+	margin-left: 40px;
+}
+
+.hero-section {
+	
+	.bottom-overlay {
+		width:100%;
+		background:rgba(0,0,0, .5)
+	}
+	
+	.btn-big {
+		font-size: 21px !important;
+	}
+
+	.jumbotron{
+	   position: relative;
+	   overflow: hidden;
+	   padding: 0px;
+	   height: 650px;
+	   margin-bottom: 5px;
+	   background-size: cover;
+	   background:none;
+	   @include screen-ltmd {
+	   		overflow: initial;
+	   		height: 605px;
+	   }
+	   @include screen-xs {
+	   		height: 400px;
+	   }
+	    
+	    #homepage-slider {
+	    	height: 650px;
+	    }
+
+	    .homepage-slider-single {
+	    	height: 650px;
+	    	background-size: cover;
+	    	position: relative;
+	    	@include screen-ltmd {
+	    		height: 605px;
+	    	}
+	    	@include screen-xs {
+	    		height: 500px;
+	    	}
+	    	div {
+	    		background: #ffffff;
+	    		height: 250px;
+	    		width: 450px;
+	    		position: absolute;
+	    		bottom: 75px;
+	    		right: 35px;
+	    		padding: 15px 30px;
+	    		-webkit-box-shadow: 4px 3px 9px 2px rgba(0,0,0,0.47);
+				-moz-box-shadow: 4px 3px 9px 2px rgba(0,0,0,0.47);
+				box-shadow: 4px 3px 9px 2px rgba(0,0,0,0.47);
+				@include screen-ltmd {
+					bottom: 50px;
+					right: initial;
+					left: 23%;
+				}
+				@include screen-xs {
+					width: 90%;
+					left: 5%;
+				}
+	    		h5 {
+	    			background: $scarlet;
+	    			display: inline-block;
+	    			text-transform: uppercase;
+				    font-size: 16px;
+				    line-height: 1.8;
+				    padding: 0px 16px;
+				    margin-bottom: 16px;
+				    color: #ffffff;
+	    		}
+	    		p {
+	    			font-size: 16px;
+	    			line-height: 1.65;
+	    			a {
+	    				margin: auto 7px;
+	    				@include red-anchor;
+	    			}
+	    		}
+	    	}
+	    }
+	   
+
+	   .container2 {
+		  position: relative;
+		  color: #ffffff;
+		  z-index: 2; /* Show content above video */
+		} 
+		
+		#video-background{ 
+		  position: absolute;
+		  height: auto;
+		  width: auto;
+		  min-height: 100%;
+		  min-width: 100%;
+		  left: 50%;
+		  top: 50%;
+		  -webkit-transform: translate3d(-50%, -50%, 0);
+		  transform: translate3d(-50%, -50%, 0);
+		  z-index: -1;
+		}
+		
+		h1 {
+    		margin-bottom:60px;
+    		font-size:85px;
+    		line-height:100px;
+    		color:white;
+    		font-family: $sans-serif;
+		    font-weight: normal;
+		    text-transform: uppercase;
+    	}
+	}
+}
+
+.sponsors-section {
+	padding:45px 0 60px;
+	text-align:center;
+
+	h2 {
+		color:white;
+		font-weight:200;
+	}
+
+	p {
+		color:#ddd;
+		font-size:21px !important;
+		margin:20px 0;
+
+		a {
+			color:white !important;
+			font-weight:bold;
+
+			&:hover {
+				color:white;
+				text-decoration:none;
+			}
+		}
+	}
+
+	ul {
+		margin:30px 0 20px;
+
+		.logo {
+			display:inline-block;
+		    margin-top: 0;
+		    width: auto;
+		    margin:10px 30px;
+
+		    img {
+		    	-webkit-filter: grayscale(100%);
+	    		filter: grayscale(100%);
+	    		transition: all 0.5s;
+
+	    		&:hover {
+		    		-webkit-filter: grayscale(0%);
+	    			filter: grayscale(0%);
+		    	}
+		    }
+		}
+
+
+	}
+}
+
+.mainpage-tagline {
+	padding:35px 0;
+	background: #4c555c;
+	text-align:center;
+	border-bottom:3px solid black;
+
+	span {
+		font-size:36px;
+		font-weight:200;
+		font-style: italic;
+		color:white;
+
+		span {
+			.source {
+
+			}
+		}
+	}
+}
+
+.about-section {
+	.jumbotron {
+		background: $gray;
+		background: url(../../assets/homepage-aboutblock@2x.jpg) top right;
+    	background-size: cover;
+    	padding: 35px;
+    	height:400px;
+    	color: $black;
+    	@include screen-ltmd {
+    		height: 100%;
+    		color: #ffffff;
+    		margin-top: 15px;
+    		margin-bottom: 15px;
+    		background: linear-gradient(to bottom, rgba(0,0,0,0) 0%,rgba(0,0,0,0) 20%,rgba(0,0,0,0.65) 100%), url(../../assets/homepage-aboutblock@2x.jpg) top right;
+    	}
+
+    	h2 {
+    		font-weight: 200;
+		    font-size: 26px;
+		    line-height: 1.6;
+    	}
+
+    	p {
+    		font-size: 16px;
+    		line-height: 1.8;
+    	}
+    	a {
+    		color: $scarlet;
+    		border-bottom: 1px dotted $scarlet;
+    		margin-right: 7px;
+    		transition: $transition;
+    		&:hover {
+    			color: $dark-scarlet;
+    			border-bottom: 1px dotted $dark-scarlet;
+    			text-decoration: none;
+    		}
+
+    	}
+	}	
+}
+
+
+.mainpage-details-section {
+	color:white;
+	margin-top: 5px;
+	margin-bottom: 60px;
+	@include screen-xs {
+		margin-top: 0px;
+	}
+
+	.col-sm-12 {
+		display: flex;
+		@include screen-xs {
+			display: initial;
+		}
+	}
+	.row {
+		@include screen-xs {
+			margin-top: -25px !important;
+		}
+	}
+
+
+	h2 {
+		font-weight:300;
+		margin-bottom:25px;
+	}
+
+	.details-block-1 {
+		background: url(../../assets/homepage-eventblock-01@2x.jpg) top right;
+    	background-size: cover;
+    	margin-left: -15px;
+    	margin-right: 5px;
+    	flex: 1;
+    	@include screen-xs {
+    		margin-left: initial;
+    		margin-right: initial;
+    		margin-top: 0px;
+    		margin-bottom: 15px;
+    	}
+    	
+	}
+
+	.details-block-2 {
+		background: url(../../assets/homepage-eventblock-02@2x.jpg) top right;
+    	background-size: cover;
+    	flex: 1;
+	}
+
+	.details-block-3{
+		background: url(../../assets/homepage-eventblock-03@2x.jpg) top right;
+    	background-size: cover;
+    	margin-right: -15px;
+    	margin-left: 5px;
+    	flex: 1;
+    		@include screen-xs {
+    		margin-left: initial;
+    		margin-right: initial;
+    		margin-top: 15px;
+    		margin-bottom: 0px;
+    	}
+	}
+
+	.sub-detail {
+		padding: 30px;
+	    text-align: left;
+	    min-height: 275px;
+	    z-index: 100000000;
+	    position: relative;
+	    flex: 1;
+	    h6 {
+	    	margin-bottom: 1em;
+	    }
+	    p {
+	    	font-size:16px;
+	    	font-weight:300;
+	    	line-height: 1.8;
+	    	a {
+	    		border-bottom: 1px dotted #ffffff;
+	    		color: #ffffff;
+	    		transition: $transition;
+	    		&:hover {
+	    			color: $gray;
+	    			border-bottom: 1px dotted $gray;
+	    			text-decoration: none;
+	    		}
+	    	}
+	    }
+
+	    span {
+	    	font-weight:bold;
+	    }
+
+	    svg {
+	    	height: 15px;
+	    	margin-left: 7px;
+	    }
+	}
+}
+
+.learn-more-wrapper {
+	display: block;
+}

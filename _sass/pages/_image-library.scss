@@ -1,0 +1,89 @@
+.image-library-page {
+	
+	.press-image {
+		position: relative;
+		margin-bottom:25px;
+		
+		&:hover {
+			> .overlay {
+			    background: $scarlet;
+			}
+		}
+	}
+
+	.overlay {
+		position: absolute;
+	    bottom: 0;
+	    width: 55px;
+	    height: 55px;
+	    background: rgba(0,0,0,.75);
+	    color:white;
+	    font-size: 25px;
+		padding: 13px 14px;
+		cursor: pointer;
+    	.glyphicon {
+    		display: block;
+    	}
+	}
+
+	.caption {
+		font-style: italic;
+
+		strong {
+			color:#aaa;
+		}
+	}
+
+	hr {
+		margin-bottom:50px;
+	}
+
+
+
+	.bootstrap-select {
+		@include screen-xs {
+			width: 90% !important;
+		}
+		.dropdown-toggle {
+			height: 50px;
+			&:focus {
+				outline: 5px auto $gray!important;
+			}
+		}
+	}
+
+	.filter-row {
+		margin-bottom:35px;
+
+		select {
+			width:240px;
+		}
+
+		.form-group {
+			display: inline-block;
+		}
+	}
+	
+	.press-items {
+		.row {
+			display: -webkit-box;
+			display: -webkit-flex;
+			display: -ms-flexbox;
+			display:         flex;
+			flex-wrap: wrap;
+		  
+			> [class*='col-'] {
+			  	display: flex;
+			  	flex-direction: column;
+			}
+		}
+	}
+
+	.btn-white {
+		position: relative;
+		top: 10px;
+		height: 50px;
+	}
+
+
+}

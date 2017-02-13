@@ -1,0 +1,45 @@
+.audio-section {
+	margin:45px 0;
+	padding: 20px;
+    background: $buff;
+    @include screen-xxs {
+	    margin: 20px 0;
+    }
+    
+    h2 {
+    	color: $scarlet;
+    }
+    h5 {
+    	color: $gray;
+    	text-transform: uppercase;
+    	font-family: $roboto;
+    }
+
+	#audio-container {
+	    width: 85px;
+	    height: 85px;
+	    position: relative;
+		float:left;
+		@include screen-xxs {
+			float: none;
+			margin: 0px auto;
+		}
+
+
+		.play-icon {
+			position: absolute;
+		    left: 28px;
+		    font-size: 35px;
+		    top: 20px;
+		} 
+	}
+
+	#audio-info {
+		float: left;
+	    margin-left: 25px;
+	    @include screen-xxs {
+		    margin-left: 0px;
+	    }
+	}
+
+}

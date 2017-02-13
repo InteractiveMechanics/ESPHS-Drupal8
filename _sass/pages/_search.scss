@@ -1,0 +1,37 @@
+.search-page {
+	h3 {
+		font-size:20px;
+		color: $black;
+	}
+
+	ul {
+		li {
+			margin-bottom: 45px;
+
+			p {
+				margin-bottom:35px;
+			}
+		}
+	}
+
+	.search-box {
+		p {
+			//font-weight:bold;
+			margin:0 0 10px 0;
+			line-height:20px;
+		}
+
+		input {
+			border-radius:0px;
+			height: 50px;
+			width: 90% !important;
+		}
+
+		.btn {
+			border-radius:0px;
+			height: 50px;
+			padding: 15px 20px;
+			width: 20%;
+		}
+	}	
+}
