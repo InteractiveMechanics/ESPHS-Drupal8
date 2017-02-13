@@ -8,6 +8,7 @@ sites/*/private
 
 # Ignore default text files
 robots.txt
+.sass-cache
 /CHANGELOG.txt
 /COPYRIGHT.txt
 /INSTALL*.txt
