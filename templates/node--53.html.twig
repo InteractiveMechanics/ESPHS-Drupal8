@@ -1,0 +1,95 @@
+		
+ 	   <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD6h3o3qew_wAiPxooQrc9z-RmFc7CvL-E"></script>
+    
+        <div class="subpage-hero-section">
+            <div class="container-fluid">
+                <div class="row">
+
+                    <div class="col-md-12">
+                        
+                        <div class="subpage-hero-details press-hero">
+                            <section>
+                                <h1 class="subpage-title">Online Tour</h1>
+                            </section>
+                        </div>
+
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+           <div class="main-content-subpages tour-page">
+
+            <div class="container-fluid">
+
+                <div class="padded-box">
+                    
+                    <div class="main-item">
+
+                        <div class="row">
+                            <div class="col-sm-10">
+                            <img id="prison-map" src="http://dev.interactivemechanics.com/easternstate/themes/historic/assets/prison-gfx@2x.png" alt="prison map" title="" />
+                            
+                            {% for marker in markers %}
+                            	<!--<a href="javascript:void(0);">
+                                	<span class="bubble"
+                                		data-title='{{tbtw_attraction.title.value}}' 
+                                		data-desc='{{tbtw_attraction.field_attraction_description.value}}'
+                                		data-image='{{file_url(tbtw_attraction.field_tbtw_attraction_logo.entity.uri.value)}}' 
+                                		data-video='{{tbtw_attraction.field_tbtw_attraction_video.value}}'
+                                		style="top: {{tbtw_attraction.field_top_position.value}}; left: {{tbtw_attraction.field_left_position.value}}; background-image:"><img src="{{file_url(tbtw_attraction.field_bubble_image.entity.uri.value)}}" ></span>
+								</a>-->
+								
+								
+								<button type="button" class="btn marker" data-title="" data-desc="" data-iframe='' style="top: {{marker.field_tour_stop_top.value}}%; left: {{marker.field_tour_stop_left.value}}%;">
+		                            <svg version="1.1" 
+												 xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:a="http://ns.adobe.com/AdobeSVGViewerExtensions/3.0/"
+												 x="0px" y="0px" width="39px" height="48.3px" viewBox="0 0 39 48.3" enable-background="new 0 0 39 48.3" xml:space="preserve">
+											<defs>
+											</defs>
+											<radialGradient id="SVGID_1_" cx="19.5167" cy="-42.1697" r="14.0323" gradientTransform="matrix(1 0 0 0.3027 0 55.6717)" gradientUnits="userSpaceOnUse">
+												<stop  offset="0" style="stop-color:#130C0E;stop-opacity:0.95"/>
+												<stop  offset="0.4624" style="stop-color:#130C0E;stop-opacity:0.6512"/>
+												<stop  offset="1" style="stop-color:#130C0E;stop-opacity:0"/>
+											</radialGradient>
+											<ellipse opacity="0.35" fill="url(#SVGID_1_)" cx="19.5" cy="42.9" rx="19.5" ry="5.4"/>
+											<g>
+												<path fill="" d="M19.5,0C12.8,0,7.4,5.4,7.4,12.2c0,11.6,12.2,26.7,12.2,26.7s12.2-15.1,12.2-26.7C31.7,5.4,26.2,0,19.5,0z
+													 M19.5,18.9c-3.6,0-6.6-2.9-6.6-6.6c0-3.6,2.9-6.6,6.6-6.6c3.6,0,6.6,2.9,6.6,6.6C26.1,15.9,23.1,18.9,19.5,18.9z"/>
+											</g>
+										</svg>
+	                                    
+	                            </button>
+                            {% endfor %}
+                            
+                            </div>
+                        </div>
+
+                         <div class="modal fade" id="tour-modal" tabindex="-1" role="dialog">
+                          <div class="modal-dialog" role="document">
+                            <div class="modal-content">
+                              <div class="modal-body">
+                                <div class="iframe-wrapper">
+<!--                                 <iframe class="mapImage" src="https://www.google.com/maps/embed?pb=!1m0!3m2!1sen!2sus!4v1485287588814!6m8!1m7!1sF%3A-T2E6P09l4qE%2FVygwc8ANGsI%2FAAAAAAABApM%2F8R0PLeHGel8z4zagDcpcwN1aN0DI0rV-ACJkC!2m2!1d39.9683364!2d-75.17266479999999!3f46!4f-2!5f0.7820865974627469" width="600" height="450" frameborder="0" style="border:0" allowfullscreen></iframe> -->
+									 <div id="street-view"></div>
+                                </div>
+                                <div class="modal-text-wrapper">
+                                    <h3>Central Guard Tower</h3>
+                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                                </div>
+                              </div>
+                            </div><!-- /.modal-content -->
+                          </div><!-- /.modal-dialog -->
+                        </div><!-- /.modal -->
+
+
+                    </div>
+                    
+
+                </div>
+
+            </div>
+
+
+        </div>

@@ -1,0 +1,85 @@
+
+<main>
+
+
+        <div class="subpage-hero-section">
+            <div class="container-fluid">
+                <div class="row">
+
+                    <div class="col-md-12">
+                        
+                        <div class="subpage-hero-details press-hero">
+                            <section>
+                                <h1 class="subpage-title">On View Installations</h1>
+                            </section>
+                        </div>
+
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+
+        <div class="main-content-subpages image-library-page">
+
+            <div class="container-fluid">
+
+                <div class="padded-box">
+                
+                	<div class="row">
+
+	                    <div class="col-md-12">
+	                        
+	                        <ul class="list-unstyled">
+	                        
+	                        	{% for row in rows %}  
+	                            
+	                            	{%
+					                	set row_classes = [
+											default_row_class ? 'views-row',
+										]
+									%}
+									
+									{{ row.content }}
+	                            {% endfor %}
+	                            
+	
+	                        </ul>
+	
+	                    </div>
+	                </div>
+                    
+                </div>
+
+            </div>
+
+
+        </div>
+
+    </main>
+
+
+<script type="text/javascript">
+	
+	/*$(function () {
+	    $("div.press-item-li").slice(0, 9).show();
+	    
+	    if ($("div.press-item-li").length > 9) {
+			$(".load-more-btn").show();
+		}
+			
+	    $(".load-more-btn").on('click', function (e) {
+	        e.preventDefault();
+	        $("div.press-item-li:hidden").slice(0, 9).slideDown();
+	        if ($("div.press-item-li:hidden").length == 0) {
+	            $(".load-more-btn").fadeOut('slow');
+	        }
+	        $('html,body').animate({
+	            scrollTop: $(this).offset().top
+	        }, 1500);
+	    });
+	});*/
+	
+	
+</script>

@@ -1,5 +1,19 @@
 .image-library-page {
 	
+	.list-item-image {
+		a {
+		    max-height: 150px;
+		    overflow: hidden;
+		    display: block;
+		    border: none !important;
+		    cursor: default;
+		}
+		
+		img {
+			width: 100%;
+		}
+	}
+	
 	.press-image {
 		position: relative;
 		margin-bottom:25px;
@@ -78,6 +92,8 @@
 			}
 		}
 	}
+
+	
 
 	.btn-white {
 		position: relative;

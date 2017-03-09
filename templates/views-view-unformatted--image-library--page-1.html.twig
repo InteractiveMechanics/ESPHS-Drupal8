@@ -1,0 +1,239 @@
+
+<main>
+
+
+        <div class="subpage-hero-section">
+            <div class="container-fluid">
+                <div class="row">
+
+                    <div class="col-md-12">
+                        
+                        <div class="subpage-hero-details press-hero">
+                            <section>
+                                <h1 class="subpage-title">Image Library</h1>
+                            </section>
+                        </div>
+
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+
+        <div class="main-content-subpages image-library-page">
+
+            <div class="container-fluid">
+
+                <div class="padded-box">
+                    
+                    <div class="row filter-row">
+	                    <div class="col-md-12">
+	                        <div class="pull-left">
+	                            <div class="form-group">
+	                                <label for="disabledTextInput">Filter by Category:</label>
+	                                <select class="form-control selectpicker">
+	                                	<option value="All">All Press Releases</option>
+	                                	{% for category in press_categories %}
+	                                    	<option value="{{category.tid.value}}">{{category.name.value}}</option>
+	                                    {% endfor %}
+	                                </select>
+	                            </div>
+	                        </div>
+	                    </div>
+	                </div>
+	                
+	                <br style="clear:both;" />
+	                <br />
+                    
+                    <div class="main-item">
+
+                        <div class="press-items">
+							<div class="row equalheights">
+	                        
+	                            {% for row in rows %}  
+	                            
+	                            	{%
+					                	set row_classes = [
+											default_row_class ? 'views-row',
+										]
+									%}
+									
+									{{ row.content }}
+	                            {% endfor %}
+	                            
+	                        </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-12 text-center">
+                                <button class="btn btn-outline btn-large btn-white load-more-btn" style="display:none;">
+                                    View More
+                                </button>
+                            </div>
+                        </div>
+
+                    </div>
+                    
+                    {% include directory ~ '/inc/press-contact.html.twig' %}
+                    
+                    
+        
+        <!--<div>
+        	<input type="radio" id="radio01" name="radio" />
+        	<label for="radio01"><span></span>Radio Button 1</label>
+        	
+        	<input type="radio" id="radio011" name="radio" />
+        	<label for="radio011"><span></span>Radio Button 1</label>
+        </div>
+                    
+                    
+                    <div>
+                    	<input type='checkbox' name='thing' value='valuable' id="thing"/><label for="thing"></label> 
+                    </div>-->
+                    
+                    
+
+
+                </div>
+
+            </div>
+
+
+        </div>
+
+    </main>
+    
+    
+    <!-- Modal -->
+<div class="modal fade press-modal" data-source="" id="myImageModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true" style="font-size:30px;">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div class="row">
+            <div class="col-md-6">
+                <img class="img-responsive modal-thumbnail" src="http://placehold.it/850x465">
+
+                <div class="caption">
+                    <p class=""><span class="modal-title">Lorem ipsum dolor sit amet, conset</span> <br />
+                    <strong>
+                        Image Code: <span class="modal-codes"></span> <br /> Photographer: <span class="modal-credit"></span>
+                    </strong></p>
+                </div>
+
+                <p class="modal-description">
+                	
+                </p>
+            </div>
+
+            <div class="col-md-6" id="ModalForm">  
+                <h3>Download this Image</h3>
+                <p>
+                    Please provide the following information. Your image will be available for immediate download.
+                </p>
+				<p class="request-form-error-message text-center">
+					
+				</p>
+                <br />
+
+                <!--<div class="form-group">
+                    <label for="disabledTextInput">Name: *</label>
+                    <input class="form-control grey-input" type="text" placeholder="Name" />
+                </div>
+
+                <div class="form-group">
+                    <label for="disabledTextInput">Organization: *</label>
+                    <input class="form-control" type="text" placeholder="Organization" />
+                </div>
+
+                <div class="form-group">
+                    <label for="disabledTextInput">Email Address: *</label>
+                    <input class="form-control" type="text" placeholder="Email" />
+                </div>
+
+                <div class="form-group">
+                    <label for="disabledTextInput">Explain how you plan to use this photo: *</label>
+                    <input class="form-control" type="text" placeholder="What's the photo for?" />
+                </div>
+
+                <div class="form-group">
+                    <label for="disabledTextInput">Explain how you plan to use this photo: *</label>
+                    
+                    <select class="form-control">
+                        <option class="">This is the option you</option>
+                    </select>  
+
+                </div>
+
+                <div class="form-group">
+                    <button class="btn btn-outline btn-white btn-large" data-dismiss="modal">Submit</button>
+                </div>-->
+                
+                {{formform}}
+                
+                <input class="btn btn-big btn-download btn-red button button--primary" style="text-align: center; margin: 0px auto; width: 70%; display: none;" data-drupal-selector="edit-download" type="submit" id="edit-download--107" name="op" value="Download Image">
+                
+                <a href="javascript:void(0);"></a>
+            </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<script type="text/javascript">
+	
+	$(function () {
+	    $("div.press-item-li").slice(0, 9).show();
+	    
+	    if ($("div.press-item-li").length > 9) {
+			$(".load-more-btn").show();
+		}
+			
+	    $(".load-more-btn").on('click', function (e) {
+	        e.preventDefault();
+	        $("div.press-item-li:hidden").slice(0, 9).slideDown();
+	        if ($("div.press-item-li:hidden").length == 0) {
+	            $(".load-more-btn").fadeOut('slow');
+	        }
+	        $('html,body').animate({
+	            scrollTop: $(this).offset().top
+	        }, 1500);
+	    });
+	});
+	
+	$(document).ready(function() {
+
+		$('a[data-toggle=modal], button[data-toggle=modal]').click(function () {
+	  		var title = $(this).data('title');
+	  		var thumbnail = $(this).data('thumbnail');
+	  		var image = $(this).data('image');
+	  		var description = $(this).data('desc');
+	  		var codes = $(this).data('codes');
+	  		var credit = $(this).data('credit');
+	  		
+	  		$('.code-text').val(codes);
+	  		$('.site-name-text').val('Eastern State Historic');
+	  		
+	  		
+	  		$('.modal-title').text(title);
+	  		$('.modal-codes').text(codes);
+	  		$('.modal-description').text(description);
+	  		$('.modal-thumbnail').attr("src", thumbnail);
+	  		$('.press-modal').data("source", image);
+	  		$('.modal-credit').text(credit);
+	  	});
+	  	
+	  	$('.btn-download').click(function(){
+		  	var dLink = window.location.origin + $('.press-modal').data("source");
+		  	window.open(dLink);	
+		  	location.reload();
+	  	});
+	});
+</script>

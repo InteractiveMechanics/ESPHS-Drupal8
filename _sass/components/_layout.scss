@@ -28,6 +28,7 @@ body {
 	}
 }
 
+/*
 .info-icon {
 	cursor: pointer;
 	background: url(../../assets/icons/icon-info.svg);
@@ -39,6 +40,7 @@ body {
     right: 20px;
     bottom: 20px;
 }
+*/
 
 .show-site-switcher {
     font-size: 15px;
@@ -111,8 +113,19 @@ body {
 		@include screen-ltmd {
 			margin-bottom: 5px;
 		}
-		
+		.active {
+			@include screen-xxs {
+				position: relative;
+				left: -10px;
+				&:before {
+					content: '';
+				}
+			}
+		}
 		li {
+			@include screen-xxs {
+				display: block;
+			}
 			
 			&:first-child {
 				a {
@@ -129,7 +142,6 @@ body {
 			    text-transform: uppercase;
 			    letter-spacing: 1px;
 			    text-shadow: 2px 2px (125, 125, 125, 0.5);
-
 				&:hover {
 					color:white;
 					text-decoration:none !important;
@@ -208,9 +220,19 @@ body {
 		position:relative;
 		padding:65px 105px;
 		//border-bottom: 2px solid black;
+		@include screen-md {
+			padding: 50px;	
+		}
 		@include screen-ltmd {
-			padding: 50px 30px;
+			padding: 50px 15px 50px 30px;
 			height: 250px;
+		}
+		@include screen-xs {
+			padding: 50px 30px;
+			height: 300px;
+		}
+		@include screen-xxs {
+			padding: 20px;
 		}
 		    
 		section {
@@ -224,7 +246,11 @@ body {
 			    height: 100%;
 			    justify-content: flex-end;
 			}
+			@include screen-md {
+				bottom: 50px;
+			}
 		}
+		
 	}
 }
 
@@ -244,7 +270,7 @@ body {
 
 	figcaption { 
 	    padding: 20px 0 25px;
-	    border-bottom: 1px solid #969696;
+	    border-bottom: 1px solid $gray;
 	    margin-bottom: 45px;
 	    font-size:16px;
 	    color: $black;
@@ -271,7 +297,7 @@ body {
 			background:none;
 			border-radius:0px;
 			border:0;
-			border-top:1px solid grey;
+			border-top:1px solid $gray;
 		}
 
 		h4 {
@@ -453,6 +479,43 @@ label {
 	    width: 20px;
 	    left: -24px;
 	}
+}
+
+.img-wrapper {
+	position: relative;
+	button {
+		position: absolute;
+		bottom: 20px;
+		right: 20px;
+		padding: 0px;
+		background: transparent;
+		border: none;
+		&:hover, &:focus, &:active, &:active:focus {
+			outline: none;
+			background: transparent;
+			border: none;
+			.info-icon {
+				fill: $scarlet;
+			}
+		}
+	}
+	.info-icon {
+		height: 40px;
+		width: 40px;
+		fill: rgba(250, 250, 250, 0.5);	
+		transition: $transition;
+	}
+}
+
+.tooltip.left {
+	margin-left: -10px;
+    margin-top: -3px;
+}
+
+.tooltip-inner{
+	border-radius: 0px;
+    padding: 6px 16px;
+    max-width: 100%;
 }
 
 

@@ -1,0 +1,31 @@
+<div class="col-md-4 col-sm-6 press-item-li" style="display:none;">
+    <div>
+        <div class="press-image">
+             <a href="javascript:void(0);" data-toggle="modal" data-target="#myImageModal" data-code="{{row._entity.field_image_code.value}}" 
+             data-image="{{file_url(row._entity.field_press_image.entity.uri.value)}}"
+             data-title="{{row._entity.title.value}}"
+             data-thumbnail="{{row._entity.field_press_image.entity.uri.value | image_style('large')}}"
+             data-codes="{{row._entity.field_image_code.value}}"
+             data-credit="{{row._entity.field_image_credit.value}}"
+             date-desc="{{row._entity.field_image_description.value}}">
+                <img class="img-responsive" src="{{row._entity.field_press_image.entity.uri.value | image_style('large')}}">
+                
+            </a>
+
+            <div class="overlay">
+                <a href="javascript:void(0);" data-toggle="modal" data-target="#myImageModal" data-code="{{row._entity.field_image_code.value}}" 
+             data-image="{{file_url(row._entity.field_press_image.entity.uri.value)}}"
+             data-title="{{row._entity.title.value}}"
+             data-thumbnail="{{row._entity.field_press_image.entity.uri.value | image_style('large')}}"
+             data-codes="{{row._entity.field_image_code.value}}"
+             data-credit="{{row._entity.field_image_credit.value}}"
+             date-desc="{{row._entity.field_image_description.value}}"><span class="glyphicon glyphicon-download-alt"></span></a>
+            </div>
+        </div>
+
+        <div class="caption">
+        
+            <p>{{ row._entity.title.value }} <strong>Image Code: {{row._entity.field_image_code.value}}</strong></p>
+        </div>
+    </div>
+</div>

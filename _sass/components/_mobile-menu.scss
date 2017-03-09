@@ -46,6 +46,7 @@ body {
 		padding-bottom: 0px;
 	}
     h2 {
+	    cursor: pointer;
         color: $black;
         font-weight: 200;
         margin-bottom: 20px;
@@ -53,12 +54,20 @@ body {
     }
     
     address {
-        color: white;
-		font-size: 16px;
-		font-weight: 300;
-		line-height: 26px;
-		
+	    color: white;
+			font-size: 13px;
+			font-weight: 300;
+			line-height: 26px;
+	 	a {
+	        color: white;
+			font-size: 13px;
+			font-weight: 300;
+			line-height: 26px;
+			float: right;
+			
+	    }   
     }
+    
 
     ul {
         margin: 0px;
@@ -100,6 +109,7 @@ body {
 
     > ul {
         margin-bottom: 25px;
+        display: flex;
         
         > li {
             border-bottom: 1px solid #ddd;
@@ -110,6 +120,7 @@ body {
 
 .mobile-menu-address-wrapper {
     background-color: $indigo;
+    height: 100%;
 }
 
 .mobile-label-links {
@@ -162,6 +173,14 @@ body {
             margin-right: 10px;
             @include screen-xs {
                 font-size: 22px;
+            }
+            
+            a {
+	            color: white;
+	            
+	            &:hover {
+		            text-decoration: none;
+	            }
             }
         }
         svg {
@@ -232,13 +251,30 @@ body {
     }
 }
 
-.hours-wrapper {
+/*.hours-wrapper {
    float: left;
-    width: 50%;
+    width: 44%;
     font-weight: 300;
     height: 50px;
     color: #ffffff;
+}*/
+
+.hours-wrapper {
+   float: left;
+    width: 48%;
+    height: 50px;
+    font-weight: 300;
+    color: #ffffff;
+    font-size: 14px;
+    line-height: 1.6;
 }
+
+.address {
+	width: 50%;
+    float: right;
+}
+
+
 
 
 .c-mask {

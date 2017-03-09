@@ -46,6 +46,13 @@
 
 	<script type="text/javascript" src="http://code.jquery.com/jquery.min.js"></script>
 	
+	
+    
+    <link rel="stylesheet" type="text/css" href="http://cdn.jsdelivr.net/jquery.slick/1.6.0/slick.css"/>
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick-theme.min.css"/>
+    <script type="text/javascript" src="//cdn.jsdelivr.net/jquery.slick/1.6.0/slick.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.12.1/css/bootstrap-select.min.css">
+	
 	<!--[if lt IE 9]>
         <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
         <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
@@ -53,10 +60,30 @@
     
     <script src="https://use.typekit.net/vcn8cop.js"></script>
 	<script>try{Typekit.load({ async: true });}catch(e){}</script>
-	<script src="http://dev.interactivemechanics.com/easternstate/halloween/themes/tbtw/js/classie.js"></script>
+	<script src="http://dev.interactivemechanics.com/easternstate/halloween/themes/historic/js/classie.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.12.1/js/bootstrap-select.min.js"></script>
 	
     <css-placeholder token="{{ placeholder_token|raw }}">
     <js-placeholder token="{{ placeholder_token|raw }}">  
+    
+    <style>
+    
+    	.js-quickedit-page-title {
+	    	display:none;
+    	}
+    	
+    	.search-page-form {
+	    	display:none;
+    	}
+
+    	.search-form-page + h2 {
+	    	display:none;
+    	}
+    	
+    	.views-exposed-form {
+	    	display:none;
+    	}
+    </style>
     
 </head>
 <body {{ attributes }} class="fade-in" data-spy="scroll" data-target="#artwork-scrollspy" data-offset="200">
@@ -232,56 +259,87 @@
 		  return check;
 		};
 		
+		function isClosed() {
+	        
+	         var d = new Date();
+	         var month = d.getMonth() + 1;
+	         var day = d.getDate();
+	        if( 
+		        (month == 3 && day == 8) ||
+	        	(month == 12 && day == 25) || 
+	        	(month == 12 && day == 24) || 
+	        	(month == 11 && day == getThanksgivingday()) || 
+	        	(month == 1 && day == 1)
+	         ) { 
+		        
+		        $('.hours-wrapper').text('Closed Today');
+		        $('.hours-section ul li:eq(1)').text('Closed Today');
+		        $('.hours-section ul li:eq(0)').html('&nbsp;');
+		        
+	        }
+	        
+        }
+        
+        function getThanksgivingday () {
+			
+			var day_of_week, first;
+			year = (new Date).getFullYear();
+			
+			first = new Date(year, 10, 1);
+			day_of_week = first.getDay();
+			return 22 + (11 - day_of_week) % 7;
+		};
+		
 		
         $(document).ready(function(){
+	        isClosed();
 	        
-	        var d = new Date();
-			var n = d.getDay();
-			
-			if(n = 0) {
-				$('.hours').text("7PM - 12:00PM");
-				$('.mobile-hours').text("7PM - 12:00PM");
-			}
-			
-			if(n >= 1 || n <= 4) {
-				$('.hours').text("7:00PM - 11:00PM");
-				$('.mobile-hours').text("7:00PM - 11:00PM");
-			}
-			
-			if(n == 5 || n == 6) {
-				$('.hours').text("7:00PM - 12:30PM");
-				$('.mobile-hours').text("7:00PM - 11:30PM");
-			}
-			
-			
-    		$('.visit-dropdown li:eq(1)').addClass('indent-li');
-    		$('.visit-dropdown li:eq(2)').addClass('indent-li');
+	        $('.mobile-menu-items').slideToggle();
 	        
-	        $('.btn-subscribe').click(function(){
-		       var email = $('.email-text').val();
-		       
-		       
-		       if(email) {
-		       		var url = "http://dev.interactivemechanics.com/1/examples/add-email.php?email=" + email;
-		       		
-		       		$.ajax({
-			            type: 'GET',
-			            url: url,
-			            success: function (msg) {
-			
-			                if(msg == "true") {
-				                $('.error-newsletter').text("Email added");
-			                } else {
-				                $('.error-newsletter').text("An error has occured, please try again later.");
-			                }
-			
-			            },
-			            error: function (request, status, error) {
-							$('.error-newsletter').text("An error has occured, please try again later.");
-			            }
-			        });
-			   	}
+	        $('.menu-item h2').click(function(){
+		        $(this).next('div').slideToggle();
 	        });
+	        
+	        $('.email-text').keypress(function (e) {
+		       
+			if (e.which == 13) {
+				var email = $('.email-text').val();
+				addEmail(email);
+			}
+		});
+        
+        $('.btn-subscribe').click(function(e){
+	       e.preventDefault();
+	       
+	       var email = $('.email-text').val();
+	       addEmail(email);
+        });
+        
+        
+		
+		function addEmail(email) {
+			if(email) {
+	       		var url = "http://prisonstoday.easternstate.org/kiosk/letters/data/1/examples/add-email.php?email=" + email;
+	       		$('.error-newsletter').html("<img src='https://www.premiumbeat.com/v225/assets/img/loading.gif' />");
+	       		
+	       		$.ajax({
+		            type: 'GET',
+		            url: url,
+		            success: function (msg) {
+		
+		                if(msg == "true") {
+			                $('.error-newsletter').text("You are subscribed. Thanks!");
+		                } else {
+			                $('.error-newsletter').text("You're already subscribed. Thanks!");
+		                }
+		
+		            },
+		            error: function (request, status, error) {
+						$('.error-newsletter').text("An error has occured, please try again later.");
+		            }
+		        });
+		   	}
+		}
 	        
 	        $('.dropdown-toggle').click(function(event){
 			     event.stopPropagation();
@@ -311,7 +369,7 @@
 							$("header.navbar").addClass('navbar-fixed-top-desktop');	
 						}
 						
-						$("header.navbar").css('background-color', 'black');
+						$("header.navbar").css('background-color', '#F9F5EF');
        				} else {
 	       				$("header.navbar").removeClass('navbar-fixed-top');
 	       				if(!mobileAndTabletcheck()) {
@@ -331,6 +389,7 @@
     		
         });
     </script>
+    
 </body>
 </html>
 

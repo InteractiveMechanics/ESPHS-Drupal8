@@ -65,92 +65,213 @@
  * @ingroup themeable
  */
 #}
+
 <div class="hero-section">
             <div class="container-fluid">
                 <div class="row">
 
                     <div class="col-md-12">
-                        <div class="jumbotron" id="homepage-slider">
-                            <div class="homepage-slider-single" style="background-image: linear-gradient(to bottom, rgba(0,0,0,0) 0%,rgba(0,0,0,0) 20%,rgba(0,0,0,0.65) 100%), url('./assets/hero-images/hero-image-01@2x.jpg');">
-                                <div>
-                                    <h5>On This Date At Eastern State</h5>
-                                    <p>#On This Day in 1834: "One of the watchmen informed me ... No. 264 had go out of his cell into the yards," reports Warden Samuel Wood. <a href="">Read more</a> 
-
-                                    <svg version="1.1"
-                                     xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:a="http://ns.adobe.com/AdobeSVGViewerExtensions/3.0/"
-                                     x="0px" y="0px" width="17.5px" height="10.2px" viewBox="0 0 17.5 10.2" enable-background="new 0 0 17.5 10.2"
-                                     xml:space="preserve">
-                                        <defs>
-                                        </defs>
-                                        <g>
-                                            <g>
-                                                <rect y="4.6" fill="#D62027" width="16.1" height="1"/>
-                                            </g>
-                                            <g>
-                                                <g>
-                                                    <polygon fill="#D62027" points="12,10.2 11.1,9.3 15.7,5.1 11.1,0.9 12,0 17.5,5.1            "/>
-                                                </g>
-                                            </g>
-                                        </g>
-                                    </svg>
-
-                                    </p>
-                                </div>
+                    
+                    	
+                    	
+								
+                        <div class="jumbotron" id="homepage-slider"  style="background-size:cover; background-image: linear-gradient(to bottom, rgba(0,0,0,0) 0%,rgba(0,0,0,0) 20%,rgba(0,0,0,0.65) 100%), url({{file_url(node.field_lead_image.entity.uri.value)}});">
+                            
+                            
+                            
+                            <div class="homepage-slider-single">
+								
+								
+								<div class="items-to-slide">
+									
+									
+									  
+									{% for details in node.field_home_page_call_out %}
+										{{details.getFieldCollectionItem().body.value}}
+									{% endfor %}
+									
+									{% if node.field_home_page_call_out.0 %}
+		                                <div>
+		                                    <h5>{{node.field_home_page_call_out.0.getFieldCollectionItem().field_home_page_call_.value}}</h5>
+		                                    <p>
+		                                    	{{node.field_home_page_call_out.0.getFieldCollectionItem().field_home_page_call_out_copy.value|raw|striptags}}
+		                                    	
+		                                    	{% if node.field_home_page_call_out.0.getFieldCollectionItem().field_home_page_call_out_link.uri starts with 'entity' %}
+		                                    		{% set urlLink = node.field_home_page_call_out.0.getFieldCollectionItem().field_home_page_call_out_link.uri|split('/')|last %}
+		                                    		<a href="{{ path('entity.node.canonical', {'node': urlLink}) }}">
+		                                    			{{node.field_home_page_call_out.0.getFieldCollectionItem().field_home_page_call_out_link.title}}
+		                                    		</a> 
+		                                    	{% endif %}
+		
+		                                    <svg version="1.1"
+		                                     xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:a="http://ns.adobe.com/AdobeSVGViewerExtensions/3.0/"
+		                                     x="0px" y="0px" width="17.5px" height="10.2px" viewBox="0 0 17.5 10.2" enable-background="new 0 0 17.5 10.2"
+		                                     xml:space="preserve">
+		                                        <defs>
+		                                        </defs>
+		                                        <g>
+		                                            <g>
+		                                                <rect y="4.6" fill="#D62027" width="16.1" height="1"/>
+		                                            </g>
+		                                            <g>
+		                                                <g>
+		                                                    <polygon fill="#D62027" points="12,10.2 11.1,9.3 15.7,5.1 11.1,0.9 12,0 17.5,5.1            "/>
+		                                                </g>
+		                                            </g>
+		                                        </g>
+		                                    </svg>
+		
+		                                    </p>
+		                                </div>
+	                                {% endif %}
+	                                
+	                                {% if node.field_home_page_call_out.1 %}
+		                                <div>
+		                                    <h5>{{node.field_home_page_call_out.1.getFieldCollectionItem().field_home_page_call_.value}}</h5>
+		                                    <p>
+		                                    	{{node.field_home_page_call_out.1.getFieldCollectionItem().field_home_page_call_out_copy.value|raw|striptags}}
+		                                    	
+		                                    	{% if node.field_home_page_call_out.1.getFieldCollectionItem().field_home_page_call_out_link.uri starts with 'entity' %}
+		                                    		{% set urlLink = node.field_home_page_call_out.1.getFieldCollectionItem().field_home_page_call_out_link.uri|split('/')|last %}
+		                                    		<a href="{{ path('entity.node.canonical', {'node': urlLink}) }}">
+		                                    			{{node.field_home_page_call_out.1.getFieldCollectionItem().field_home_page_call_out_link.title}}
+		                                    		</a> 
+		                                    	{% endif %} 
+		
+		                                    <svg version="1.1"
+		                                     xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:a="http://ns.adobe.com/AdobeSVGViewerExtensions/3.0/"
+		                                     x="0px" y="0px" width="17.5px" height="10.2px" viewBox="0 0 17.5 10.2" enable-background="new 0 0 17.5 10.2"
+		                                     xml:space="preserve">
+		                                        <defs>
+		                                        </defs>
+		                                        <g>
+		                                            <g>
+		                                                <rect y="4.6" fill="#D62027" width="16.1" height="1"/>
+		                                            </g>
+		                                            <g>
+		                                                <g>
+		                                                    <polygon fill="#D62027" points="12,10.2 11.1,9.3 15.7,5.1 11.1,0.9 12,0 17.5,5.1            "/>
+		                                                </g>
+		                                            </g>
+		                                        </g>
+		                                    </svg>
+		
+		                                    </p>
+		                                </div>
+	                                {% endif %}
+	                                
+	                                {% if node.field_home_page_call_out.2 %}
+		                                <div>
+		                                    <h5>{{node.field_home_page_call_out.2.getFieldCollectionItem().field_home_page_call_.value}}</h5>
+		                                    <p>
+		                                    	{{node.field_home_page_call_out.2.getFieldCollectionItem().field_home_page_call_out_copy.value|raw|striptags}}
+		                                    	
+		                                    	{% if node.field_home_page_call_out.2.getFieldCollectionItem().field_home_page_call_out_link.uri starts with 'entity' %}
+		                                    		{% set urlLink = node.field_home_page_call_out.2.getFieldCollectionItem().field_home_page_call_out_link.uri|split('/')|last %}
+		                                    		<a href="{{ path('entity.node.canonical', {'node': urlLink}) }}">
+		                                    			{{node.field_home_page_call_out.2.getFieldCollectionItem().field_home_page_call_out_link.title}}
+		                                    		</a> 
+		                                    	{% endif %}
+		
+		                                    <svg version="1.1"
+		                                     xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:a="http://ns.adobe.com/AdobeSVGViewerExtensions/3.0/"
+		                                     x="0px" y="0px" width="17.5px" height="10.2px" viewBox="0 0 17.5 10.2" enable-background="new 0 0 17.5 10.2"
+		                                     xml:space="preserve">
+		                                        <defs>
+		                                        </defs>
+		                                        <g>
+		                                            <g>
+		                                                <rect y="4.6" fill="#D62027" width="16.1" height="1"/>
+		                                            </g>
+		                                            <g>
+		                                                <g>
+		                                                    <polygon fill="#D62027" points="12,10.2 11.1,9.3 15.7,5.1 11.1,0.9 12,0 17.5,5.1            "/>
+		                                                </g>
+		                                            </g>
+		                                        </g>
+		                                    </svg>
+		
+		                                    </p>
+		                                </div>
+	                                {% endif %}
+	                                
+	                                {% if node.field_home_page_call_out.3 %}
+		                                <div>
+		                                    <h5>{{node.field_home_page_call_out.3.getFieldCollectionItem().field_home_page_call_.value}}</h5>
+		                                    <p>
+		                                    	{{node.field_home_page_call_out.3.getFieldCollectionItem().field_home_page_call_out_copy.value|raw|striptags}}
+		                                    	
+		                                    	{% if node.field_home_page_call_out.3.getFieldCollectionItem().field_home_page_call_out_link.uri starts with 'entity' %}
+		                                    		{% set urlLink = node.field_home_page_call_out.3.getFieldCollectionItem().field_home_page_call_out_link.uri|split('/')|last %}
+		                                    		<a href="{{ path('entity.node.canonical', {'node': urlLink}) }}">
+		                                    			{{node.field_home_page_call_out.3.getFieldCollectionItem().field_home_page_call_out_link.title}}
+		                                    		</a> 
+		                                    	{% endif %}
+		
+		                                    <svg version="1.1"
+		                                     xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:a="http://ns.adobe.com/AdobeSVGViewerExtensions/3.0/"
+		                                     x="0px" y="0px" width="17.5px" height="10.2px" viewBox="0 0 17.5 10.2" enable-background="new 0 0 17.5 10.2"
+		                                     xml:space="preserve">
+		                                        <defs>
+		                                        </defs>
+		                                        <g>
+		                                            <g>
+		                                                <rect y="4.6" fill="#D62027" width="16.1" height="1"/>
+		                                            </g>
+		                                            <g>
+		                                                <g>
+		                                                    <polygon fill="#D62027" points="12,10.2 11.1,9.3 15.7,5.1 11.1,0.9 12,0 17.5,5.1            "/>
+		                                                </g>
+		                                            </g>
+		                                        </g>
+		                                    </svg>
+		
+		                                    </p>
+		                                </div>
+	                                {% endif %}
+	                                
+	                                {% if node.field_home_page_call_out.4 %}
+		                                <div>
+		                                    <h5>{{node.field_home_page_call_out.4.getFieldCollectionItem().field_home_page_call_.value}}</h5>
+		                                    <p>
+		                                    	{{node.field_home_page_call_out.4.getFieldCollectionItem().field_home_page_call_out_copy.value|raw|striptags}}
+		                                    	
+		                                    	{% if node.field_home_page_call_out.4.getFieldCollectionItem().field_home_page_call_out_link.uri starts with 'entity' %}
+		                                    		{% set urlLink = node.field_home_page_call_out.4.getFieldCollectionItem().field_home_page_call_out_link.uri|split('/')|last %}
+		                                    		<a href="{{ path('entity.node.canonical', {'node': urlLink}) }}">
+		                                    			{{node.field_home_page_call_out.4.getFieldCollectionItem().field_home_page_call_out_link.title}}
+		                                    		</a> 
+		                                    		
+		                                    	{% endif %}
+		
+		                                    <svg version="1.1"
+		                                     xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:a="http://ns.adobe.com/AdobeSVGViewerExtensions/3.0/"
+		                                     x="0px" y="0px" width="17.5px" height="10.2px" viewBox="0 0 17.5 10.2" enable-background="new 0 0 17.5 10.2"
+		                                     xml:space="preserve">
+		                                        <defs>
+		                                        </defs>
+		                                        <g>
+		                                            <g>
+		                                                <rect y="4.6" fill="#D62027" width="16.1" height="1"/>
+		                                            </g>
+		                                            <g>
+		                                                <g>
+		                                                    <polygon fill="#D62027" points="12,10.2 11.1,9.3 15.7,5.1 11.1,0.9 12,0 17.5,5.1            "/>
+		                                                </g>
+		                                            </g>
+		                                        </g>
+		                                    </svg>
+		
+		                                    </p>
+		                                </div>
+	                                {% endif %}
+	                                
+								</div>
+								
+								
                             </div>
 
-                            <div class="homepage-slider-single" style="background-image: linear-gradient(to bottom, rgba(0,0,0,0) 0%,rgba(0,0,0,0) 20%,rgba(0,0,0,0.65) 100%), url('./assets/hero-images/hero-image-02@2x.jpg');">
-                                <div>
-                                    <h5>On This Date At Slide 2</h5>
-                                    <p>#On This Day in 1835: "One of the watchmen informed me ... No. 264 had escaped but they found him at Wawa, eating a meatball hoagie," reports Warden Samuel Wood. <a href="">Read more</a> 
-
-                                    <svg version="1.1"
-                                     xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:a="http://ns.adobe.com/AdobeSVGViewerExtensions/3.0/"
-                                     x="0px" y="0px" width="17.5px" height="10.2px" viewBox="0 0 17.5 10.2" enable-background="new 0 0 17.5 10.2"
-                                     xml:space="preserve">
-                                        <defs>
-                                        </defs>
-                                        <g>
-                                            <g>
-                                                <rect y="4.6" fill="#D62027" width="16.1" height="1"/>
-                                            </g>
-                                            <g>
-                                                <g>
-                                                    <polygon fill="#D62027" points="12,10.2 11.1,9.3 15.7,5.1 11.1,0.9 12,0 17.5,5.1            "/>
-                                                </g>
-                                            </g>
-                                        </g>
-                                    </svg>
-
-                                    </p>
-                                </div>
-                            </div>
-
-                            <div class="homepage-slider-single" style="background-image: linear-gradient(to bottom, rgba(0,0,0,0) 0%,rgba(0,0,0,0) 20%,rgba(0,0,0,0.65) 100%), url('./assets/hero-images/hero-image-03@2x.jpg');">
-                                <div>
-                                    <h5>On This Date At Slide 3</h5>
-                                    <p>#On This Day in 1836: "One of the watchmen informed me ... No. 264 was found in his cell with a rock pick, a Rita Hayworth poster, and a Stehen King novel," reports Warden Samuel Wood. <a href="">Read more</a> 
-
-                                    <svg version="1.1"
-                                     xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:a="http://ns.adobe.com/AdobeSVGViewerExtensions/3.0/"
-                                     x="0px" y="0px" width="17.5px" height="10.2px" viewBox="0 0 17.5 10.2" enable-background="new 0 0 17.5 10.2"
-                                     xml:space="preserve">
-                                        <defs>
-                                        </defs>
-                                        <g>
-                                            <g>
-                                                <rect y="4.6" fill="#D62027" width="16.1" height="1"/>
-                                            </g>
-                                            <g>
-                                                <g>
-                                                    <polygon fill="#D62027" points="12,10.2 11.1,9.3 15.7,5.1 11.1,0.9 12,0 17.5,5.1            "/>
-                                                </g>
-                                            </g>
-                                        </g>
-                                    </svg>
-
-                                    </p>
-                                </div>
-                            </div>
+                            
 
                         </div>
                     </div>
@@ -171,10 +292,10 @@
 
                                 <div class="col-lg-5 col-md-6 col-sm-12 col-xs-12">
 
-                                    <h2>America's Most Historic Prison</h2>
+                                    <h2>{{node.field_home_page_body.0.getFieldCollectionItem().field_body_title.value|raw}}</h2>
 
                                     <p>
-                                        Eastern State Penitentiary was once the ost famouse and expensive prison in the world, but stands today in ruin, a haunting world of crumbling cellblocks and empty guard towers. Known for its grand architecture and strict discipline, this was the world's first true "penitentiary," a prison design to inspire penitence, or true regret.
+                                        {{node.field_home_page_body.0.getFieldCollectionItem().field_body_copy.value|raw}}
                                     </p>
 
                                     <p>
@@ -223,12 +344,13 @@
                 <div class="col-sm-12">
                     <div class="details-block-1">
                         <div class="sub-detail">
-                            <h6>July 16, 2016</h6>
-                            <h2>Bastille Day</h2>
+                        	
+                        	<h6>{{node.field_feature_event.entity.field_event_date.value|date("m/d/Y")}}</h6>
+                            <h2>{{node.field_feature_event.entity.title.value}}</h2>
 
-                            <p>
-                                Bastile Day is BACK! Here's what to expect for 2016. <span class="learn-more-wrapper">
-                                <a href=""><span>Learn more</span></a> 
+							<p>
+                                {{node.field_feature_event.entity.body.summary|raw}} <span class="learn-more-wrapper">
+                                <a href="{{ path('entity.node.canonical', {'node': node.field_feature_event.entity.nid.value}) }}"><span>Learn more</span></a> 
                                 <svg version="1.1"
                                      xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:a="http://ns.adobe.com/AdobeSVGViewerExtensions/3.0/"
                                      x="0px" y="0px" width="26.5px" height="20.4px" viewBox="0 0 26.5 20.4" enable-background="new 0 0 26.5 20.4"
@@ -254,12 +376,20 @@
                     </div>
                     <div class="details-block-2">
                         <div class="sub-detail">
-                            <h6>July 16, 2016</h6>
-                            <h2>Bastille Day</h2>
+                            <h2>{{node.field_feature_block.0.getFieldCollectionItem().field_feature_block_title.value}}</h2>
 
                             <p>
-                                Bastile Day is BACK! Here's what to expect for 2016. <span class="learn-more-wrapper">
-                                <a href=""><span>Learn more</span></a> 
+                                {{node.field_feature_block.0.getFieldCollectionItem().field_feature_block_copy.value|raw}} <span class="learn-more-wrapper">
+                                
+                                
+                                <p style="margin:0; padding:0px;">
+                                	
+                                	{% if node.field_feature_block.0.getFieldCollectionItem().field_feature_block_link.uri starts with 'http' %}
+										<a target="_blank" href="{{node.field_feature_block.0.getFieldCollectionItem().field_feature_block_link.uri}}"><span>{{node.field_feature_block.0.getFieldCollectionItem().field_feature_block_link.title}}</span></a>
+									{% else %}
+										<a href="{{node.field_feature_block.0.getFieldCollectionItem().field_feature_block_link.uri}}"><span>{{node.field_feature_block.1.getFieldCollectionItem().field_feature_block_link.title}}</span></a>
+									{% endif %}
+                                	
                                 <svg version="1.1"
                                      xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:a="http://ns.adobe.com/AdobeSVGViewerExtensions/3.0/"
                                      x="0px" y="0px" width="26.5px" height="20.4px" viewBox="0 0 26.5 20.4" enable-background="new 0 0 26.5 20.4"
@@ -277,7 +407,7 @@
                                             </g>
                                         </g>
                                 </svg>
-                                </span>
+                                </span></p>
                             </p>
                         </div>
 
@@ -285,12 +415,20 @@
                     </div>
                     <div class="details-block-3">
                         <div class="sub-detail">
-                            <h6>July 16, 2016</h6>
-                            <h2>Bastille Day</h2>
+                            <h2>{{node.field_feature_block.1.getFieldCollectionItem().field_feature_block_title.value}}</h2>
 
                             <p>
-                                Bastile Day is BACK! Here's what to expect for 2016. <span class="learn-more-wrapper">
-                                <a href=""><span>Learn more</span></a> 
+                                {{node.field_feature_block.1.getFieldCollectionItem().field_feature_block_copy.value|raw}} <span class="learn-more-wrapper">
+                                
+                                
+                                <p style="margin:0; padding:0px;">
+                                
+                                
+                                	{% if node.field_feature_block.0.getFieldCollectionItem().field_feature_block_link.uri starts with 'http' %}
+										<a target="_blank" href="{{node.field_feature_block.1.getFieldCollectionItem().field_feature_block_link.uri}}"><span>{{node.field_feature_block.1.getFieldCollectionItem().field_feature_block_link.title}}</span></a>
+									{% else %}
+										<a href="{{node.field_feature_block.1.getFieldCollectionItem().field_feature_block_link.uri}}"><span>{{node.field_feature_block.1.getFieldCollectionItem().field_feature_block_link.title}}</span></a>
+									{% endif %}
                                 <svg version="1.1"
                                      xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:a="http://ns.adobe.com/AdobeSVGViewerExtensions/3.0/"
                                      x="0px" y="0px" width="26.5px" height="20.4px" viewBox="0 0 26.5 20.4" enable-background="new 0 0 26.5 20.4"
@@ -308,7 +446,7 @@
                                             </g>
                                         </g>
                                 </svg>
-                                </span>
+                                </span></p>
                             </p>
                         </div>
 

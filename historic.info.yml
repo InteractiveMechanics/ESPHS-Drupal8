@@ -9,8 +9,8 @@ base theme: stable
 
 # Libraries
 libraries:
-  - tbtw/bootstrap
-  - tbtw/global-styling
+  - historic/bootstrap
+  - historic/global-styling
 
 
 # Regions

@@ -110,7 +110,7 @@ $(function(){
         }
     });
 
-    $('#homepage-slider').slick({
+    $('.items-to-slide').slick({
             dots: true,
             arrows: false
     });
@@ -119,22 +119,26 @@ $(function(){
 
 
     var $window = $(window);
+    
+    var startchange = $('main');
+	var offset = startchange.offset();
+    var startZone = offset.top;
+    
     var $callout = $('#callout');
   
     $window.on('scroll', function() {
         // get the height from the top of the header and add a further 255px for the area where the box will come into view, so that the callout will show if the user scrolls down 255px past the header 
-        var startZone = $('header').offset().top + 255;
         // get the height from the top of the footer, subtract the height of the viewport and subtract a further 100 pixels, so that the callout will show if the user scrolls within 100 pixels of the footer 
-        var endZone = $('footer').offset().top - $window.height() - 100;
+        var endZone = $('footer').offset().top - $window.height() - 200;
         
         // checks if the user's position is past the startZone and further from the top than the endZone
         if ($window.scrollTop() > startZone && $window.scrollTop() < endZone) {
             // if the condition is true, the box slides from the right to the edge of the page and this takes 150 milliseconds
-            $callout.animate({'opacity': '1.0'}, 175);
+            $callout.animate({'opacity': '1.0'}, 200);
 
         } else {
             // if the condition is false or the box is in the middle of animating, it is stopped and the callout then slides off the right hand side of the page, takeing 150 milliseconds
-           $callout.stop(true).animate({'opacity': '0'}, 175);
+           $callout.stop(true).animate({'opacity': '0'}, 200);
         }
 
 
@@ -180,6 +184,17 @@ $(function(){
     
 });
 
+function getParameterByName(name, url) {
+    if (!url) {
+      url = window.location.href;
+    }
+    name = name.replace(/[\[\]]/g, "\\$&");
+    var regex = new RegExp("[?&]" + name + "(=([^&#]*)|&|#|$)"),
+        results = regex.exec(url);
+    if (!results) return null;
+    if (!results[2]) return '';
+    return decodeURIComponent(results[2].replace(/\+/g, " "));
+}
 
 
 

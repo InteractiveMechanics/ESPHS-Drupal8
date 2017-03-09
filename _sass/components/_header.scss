@@ -1,6 +1,9 @@
 .navbar {
 	margin-bottom:0px;	
-	padding:10px 0;
+	padding:10px 20px;
+	@include screen-xs {
+		padding: 10px 0px;
+	}
 }
 
 .navigation-links-section {
@@ -15,11 +18,15 @@
 		width: 30px;
 		height: 4px;
 	}
+	@include screen-xs {		
+		margin-right: 0px;		
+	}
 }
 
 .dropdown-menu {
 	border: none;
 }
+
 
 .hours-section {
 	float:right; 
@@ -61,6 +68,11 @@
 			text-transform:uppercase;
 			font-weight:bold;
 			padding-top:0px !important;
+			transition: $transition;
+			
+			&:hover {
+				color: $scarlet !important;
+			}	
 		}
 	}
 }
@@ -68,11 +80,20 @@
 .navbar-logo {
 	img {
 		height:90px;
+		transition: $transition;  	
+	  	&:hover {
+			opacity: 0.7;
+	  	}
 	}
 }
 
 #search-icon {
 	height: 15px;
+	transition: $transition;		
+	fill: #BABCBE;		
+	&:hover {		
+		fill: $scarlet;		
+	}
 }
 
 
@@ -225,10 +246,15 @@
 .navbar-inverse.nav-upper .navbar-upper > li {
   display: table-cell;
   font-size: 14px;
+  letter-spacing: 1px;
 }
 .navbar-inverse.nav-upper .navbar-upper > li > a {
   color: #BABCBE;
   cursor:pointer;
+  transition: $transition;		
+  &:hover {		
+	  color: $scarlet;		
+  }
 }
 @media (min-width: 768px) {
   .navbar.navbar-lower .navbar-nav {
@@ -258,9 +284,21 @@
   background-position: center center;
   background-repeat: no-repeat;
   position: absolute;
-  top: 5px;
   left: 50px;
   z-index: 1;
+  display: flex;
+  align-items: center;
+  @include screen-sm {
+	  display: initial;
+	  top: 5px;
+  }
+  img {
+	    transition: $transition;  	
+	  	&:hover {
+			opacity: 0.7;
+	  }
+  }
+ 
 }
 .navbar-fixed-top {
 	.navbar-logo {
@@ -291,5 +329,6 @@
 	
 	.navbar-logo img {
 	    height: 60px !important;
+	    margin-top: -30px !important;
 	}
 }

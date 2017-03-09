@@ -59,10 +59,9 @@
  */
 #}
 
-<a href="{{ url }}"><div class="result">
-{{ title_prefix }}
-<h3{{ title_attributes }}>
-  {{ title }}
-</h3>
-{{ title_suffix }}
-</div></a>
+<div class="list-item-detail">
+    <h3><a href="{{ url }}">{{ title }}</a></h3>
+   
+    {% set text = snippet|render|striptags|replace({'&nbsp;': " ", '&nbsp;': " "}) %}
+	<p>{{ text|length > 500 ? text|slice(0, 500) ~ '...' : text }}</p>
+</div>
