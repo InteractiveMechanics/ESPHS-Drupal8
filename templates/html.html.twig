@@ -39,7 +39,7 @@
     	{% set hmtlTitle = head_title|safe_join(' | ') %}
     {% endif %}
     
-    <title>{{hmtlTitle}}</title> 
+    <title>{{hmtlTitle|raw}}</title> 
 	
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.css">
 
@@ -60,7 +60,7 @@
     
     <script src="https://use.typekit.net/vcn8cop.js"></script>
 	<script>try{Typekit.load({ async: true });}catch(e){}</script>
-	<script src="http://dev.interactivemechanics.com/easternstate/halloween/themes/historic/js/classie.js"></script>
+	<script src="{{ path('<front>') }}halloween/themes/historic/js/classie.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.12.1/js/bootstrap-select.min.js"></script>
 	
     <css-placeholder token="{{ placeholder_token|raw }}">
@@ -87,6 +87,17 @@
     
 </head>
 <body {{ attributes }} class="fade-in" data-spy="scroll" data-target="#artwork-scrollspy" data-offset="200">
+
+	<script>
+	  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+	
+	  ga('create', 'UA-212020-4', 'auto');
+	  ga('send', 'pageview');
+	
+	</script>
     
     <a href="#main-content" class="visually-hidden focusable">
       {{ 'Skip to main content'|t }}
@@ -107,7 +118,7 @@
         </div>
         <div class="attraction-modal-footer">
           <div class="attraction-image" style="width:200px; float:left;">
-            <img src="./assets/attractions/attraction-breakout@2x.jpg.jpg" style="width:100%;" />
+            <img src="" style="width:100%;" />
           </div>
 
           <div class="attraction-description" >
@@ -389,6 +400,9 @@
     		
         });
     </script>
+    
+    
+    
     
 </body>
 </html>

@@ -1,3 +1,30 @@
+.press-contacts-container {
+	border-top: 1px solid grey;
+    margin-top: 30px;
+    padding-top: 30px;
+    
+    a {
+	    @include red-anchor;
+    }
+}
+
+.list-item-detail {
+	a {
+		color: $black;
+		
+		&:hover {
+			color: $red;
+			text-decoration: none;
+		}
+	}
+}
+
+.press-image {
+	img { 
+		margin-bottom: 10px !important;
+	}
+}
+
 .press-page {
 	ul {
 		li {

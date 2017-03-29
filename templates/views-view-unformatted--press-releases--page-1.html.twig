@@ -1,5 +1,4 @@
 
-<main>
 
 	<div class="subpage-hero-section">
         <div class="container-fluid">
@@ -26,26 +25,7 @@
 
             <div class="padded-box">
             
-            	<div class="row filter-row">
-                    <div class="col-md-12">
-                        <div class="pull-left">
-                            <div class="form-group">
-                                <label for="disabledTextInput">Filter by Category:</label>
-                                <select class="form-control selectpicker">
-                                	<option value="All">All Press Releases</option>
-                                	{% for category in press_categories %}
-                                    	<option value="{{category.tid.value}}">{{category.name.value}}</option>
-                                    {% endfor %}
-                                </select>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                
-                <br style="clear:both;" />
-                <br />
-                
-
+            	
                 <div class="row">
 
                     <div class="col-md-12">
@@ -87,26 +67,27 @@
 
 
      
-</main>
-
 <script type="text/javascript">
 	
 	$(function () {
 		
 		var cid = getParameterByName('categoryid');
 		if( cid ) {
-			//$('select[name=selValue]').val(cid);
-			//$('.selectpicker').selectpicker('refresh');
+			setTimeout(function(){
+				$('.selectpicker').val(cid);
+				$('.selectpicker').selectpicker('refresh');
+			}, 1500);
+
 		}
 		
 		$('.selectpicker').on('change', function(){
 		    var selected = $(this).find("option:selected").val();
 			
 			if(selected == 'All') {
-				var url = "http://dev.interactivemechanics.com/easternstate/press-room/press-releases";
+				var url = "{{ path('<front>') }}press-room/press-releases";
 				location.href = url;
 			} else {
-				var url = "http://dev.interactivemechanics.com/easternstate/press-room/press-releases?categoryid=" + selected;
+				var url = "{{ path('<front>') }}press-room/press-releases?categoryid=" + selected;
 				location.href = url;
 			}
 			

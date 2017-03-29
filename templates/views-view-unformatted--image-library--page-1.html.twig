@@ -1,7 +1,4 @@
 
-<main>
-
-
         <div class="subpage-hero-section">
             <div class="container-fluid">
                 <div class="row">
@@ -33,7 +30,7 @@
 	                            <div class="form-group">
 	                                <label for="disabledTextInput">Filter by Category:</label>
 	                                <select class="form-control selectpicker">
-	                                	<option value="All">All Press Releases</option>
+	                                	<option value="All">All Press Images</option>
 	                                	{% for category in press_categories %}
 	                                    	<option value="{{category.tid.value}}">{{category.name.value}}</option>
 	                                    {% endfor %}
@@ -102,7 +99,6 @@
 
         </div>
 
-    </main>
     
     
     <!-- Modal -->
@@ -133,13 +129,9 @@
 
             <div class="col-md-6" id="ModalForm">  
                 <h3>Download this Image</h3>
-                <p>
-                    Please provide the following information. Your image will be available for immediate download.
-                </p>
-				<p class="request-form-error-message text-center">
+                 <p class="request-form-error-message text-center" style="margin:0px; margin-bottom:10px;">
 					
 				</p>
-                <br />
 
                 <!--<div class="form-group">
                     <label for="disabledTextInput">Name: *</label>
@@ -190,6 +182,29 @@
 <script type="text/javascript">
 	
 	$(function () {
+		
+		var cid = getParameterByName('categoryid');
+		if( cid ) {
+			setTimeout(function(){
+				$('.selectpicker').val(cid);
+				$('.selectpicker').selectpicker('refresh');
+			}, 1500);
+
+		}
+		
+		$('.selectpicker').on('change', function(){
+		    var selected = $(this).find("option:selected").val();
+			
+			if(selected == 'All') {
+				var url = "{{ path('<front>') }}press-room/image-library";
+				location.href = url;
+			} else {
+				var url = "{{ path('<front>') }}press-room/image-library?categoryid=" + selected;
+				location.href = url;
+			}
+			
+		});
+		
 	    $("div.press-item-li").slice(0, 9).show();
 	    
 	    if ($("div.press-item-li").length > 9) {
@@ -233,7 +248,14 @@
 	  	$('.btn-download').click(function(){
 		  	var dLink = window.location.origin + $('.press-modal').data("source");
 		  	window.open(dLink);	
-		  	location.reload();
+		  	//location.reload();
+	  	});
+	  	
+	  	$('#myImageModal').on('hidden.bs.modal', function () {
+		  	//if($('.btn-download').is(':visible')) {
+		  		$('#request-form-wrapper-id form').css('display', 'block');
+		  		$('.btn-download').css('display', 'none');
+		  	//}
 	  	});
 	});
 </script>

@@ -12,12 +12,24 @@
 
          <div class="col-md-9">
             <div class="list-item-detail">
-            	<p class="sub-headline">{{row._entity.field_event_date.value|date("F j, Y, g:i a")}}</p>
+            	<h6 class="sub-headline">
+                    {{row._entity.field_event_date.value|date("F j, Y, g:i a", "Etc/GMT+8")}}
+                    {% set start_date = row._entity.field_event_date.value|date("F j, Y", "Etc/GMT+8") %}
+
+                    {% if row._entity.field_event_end_date.value %}
+                        &ndash; 
+                        {% if start_date == row._entity.field_event_end_date.value|date("F j, Y", "Etc/GMT+8") %}
+                            {{row._entity.field_event_end_date.value|date("g:i a", "Etc/GMT+8")}}
+                        {% else %}
+                            {{row._entity.field_event_end_date.value|date("F j, Y, g:i a", "Etc/GMT+8")}}
+                        {% endif %}
+                    {% endif %}
+                </h6>
                 <h2><a href="{{ path('entity.node.canonical', {'node': row._entity.nid.value}) }}">{{row._entity.title.value}}</a></h2>
                 
                 
-                {% set text = row._entity.body.value|render|striptags %}
-				<p>{{ text|length > 500 ? text|slice(0, 500) ~ '...' : text }}</p>
+                {% set text = row._entity.body.value|striptags %}
+				<p>{{ text | raw }}</p>
             </div>
         </div>
     </div>

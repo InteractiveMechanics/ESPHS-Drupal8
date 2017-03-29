@@ -11,17 +11,46 @@
  */
 #}
 {% spaceless %}
-  {% for option in options %}
-    <div class="checkbox">
-        <label>
+  {% if input_group %}
+    <div class="input-group">
+  {% endif %}
+
+  {% if prefix %}
+    {{ prefix }}
+  {% endif %}
+
+  {# Browsers do not recognize pseudo :after selectors, we must create a wrapper
+   # around the select element to style it properly.
+   # @see http://stackoverflow.com/q/21103542
+   #}
+  {% if not attributes.offsetExists('multiple') %}
+    <div class="select-wrapper">
+  {% endif %}
+    {% set classes = ['form-control'] %}
+    <select{{ attributes.addClass(classes) }}>
+      {% for option in options %}
         {% if option.type == 'optgroup' %}
+          <optgroup label="{{ option.label }}">
             {% for sub_option in option.options %}
-                <input type="checkbox" {{ attributes }} value="{{ sub_option.value }}" {{ sub_option.selected ? ' checked="checked"' }}> {{ sub_option.label }}
+              <option
+                value="{{ sub_option.value }}"{{ sub_option.selected ? ' selected="selected"' }}>{{ sub_option.label }}</option>
             {% endfor %}
-        {% else %}
-            <input type="checkbox" {{ attributes }} value="{{ option.value }}" {{ option.selected ? ' checked="checked"' }}> {{ option.label }}
+          </optgroup>
+        {% elseif option.type == 'option' %}
+          <option
+            value="{{ option.value }}"{{ option.selected ? ' selected="selected"' }}>{{ option.label }}</option>
         {% endif %}
-        </label>
+      {% endfor %}
+    </select>
+  {% if not attributes.offsetExists('multiple') %}
     </div>
-  {% endfor %}
+  {% endif %}
+
+  {% if suffix %}
+    {{ suffix }}
+  {% endif %}
+
+  {% if input_group %}
+    </div>
+  {% endif %}
 {% endspaceless %}

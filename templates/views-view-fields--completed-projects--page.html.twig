@@ -12,7 +12,7 @@
 
          <div class="col-md-9">
             <div class="list-item-detail">
-            	<!--<p class="sub-headline">Sub Headline, Date, Author or Category</p>-->
+            	<h6>Status: {{row._entity.field_annual_appeal_status.value}} &nbsp;&nbsp;|&nbsp;&nbsp; Cost: {{row._entity.field_annual_appeal_cost.value}}</h6>
                 <h2><a href="{{ path('entity.node.canonical', {'node': row._entity.nid.value}) }}">{{row._entity.title.value}}</a></h2>
                 
                 

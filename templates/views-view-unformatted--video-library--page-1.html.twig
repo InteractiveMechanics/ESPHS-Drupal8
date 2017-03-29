@@ -1,5 +1,4 @@
 
-<main>
 
 
         <div class="subpage-hero-section">
@@ -28,25 +27,8 @@
                 <div class="padded-box">
                     
                     
-                    <div class="row filter-row">
-	                    <div class="col-md-12">
-	                        <div class="pull-left">
-	                            <div class="form-group">
-	                                <label for="disabledTextInput">Filter by Category:</label>
-	                                <select class="form-control selectpicker">
-	                                	<option value="All">All Press Releases</option>
-	                                	{% for category in press_categories %}
-	                                    	<option value="{{category.tid.value}}">{{category.name.value}}</option>
-	                                    {% endfor %}
-	                                </select>
-	                            </div>
-	                        </div>
-	                    </div>
-	                </div>
-	                
-	                <br style="clear:both;" />
-	                <br />
-	                
+                    
+                    
                     <div class="main-item">
 					
 						<div class="row">
@@ -54,12 +36,12 @@
 								<div class="password-form">
 									<p>
 										The page you are trying to view is password protected. To obtain the password, 
-										please email your name and media organization to Ellen Feist at ef@easternstate.org.
+										please email your name and media organization to Nicole Frankhouser at <a href="mailto:nf@easternstate.org">nf@easternstate.org</a>.
 									</p>
 									
 									<div class="form-group">
 										<label class="error-message" style="color:#DB322B"></label>
-										<input type="password" class="form-control password" placeholder="Enter passwrod" autocomplete="off" /> <br />
+										<input type="password" class="form-control password" placeholder="Enter password" autocomplete="off" /> <br />
 										<button class="btn btn-red">Enter</button>
 									</div>
 								</div>
@@ -102,9 +84,83 @@
 
 
         </div>
-
-    </main>
     
+    
+    
+    <!-- Modal -->
+<div class="modal fade press-modal" data-source="" id="myVideoModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true" style="font-size:30px;">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div class="row">
+            <div class="col-md-6">
+                <img class="img-responsive modal-thumbnail" src="http://placehold.it/850x465">
+
+                <div class="caption">
+                    <p class=""><span class="modal-title">Lorem ipsum dolor sit amet, conset</span> <br />
+                </div>
+
+                <p class="modal-description">
+                	
+                </p>
+            </div>
+
+            <div class="col-md-6" id="ModalForm">  
+                <h3>Download this Video</h3>
+                <p class="request-form-error-message text-center" style="margin:0px; margin-bottom:10px;">
+					
+				</p>
+
+                <!--<div class="form-group">
+                    <label for="disabledTextInput">Name: *</label>
+                    <input class="form-control grey-input" type="text" placeholder="Name" />
+                </div>
+
+                <div class="form-group">
+                    <label for="disabledTextInput">Organization: *</label>
+                    <input class="form-control" type="text" placeholder="Organization" />
+                </div>
+
+                <div class="form-group">
+                    <label for="disabledTextInput">Email Address: *</label>
+                    <input class="form-control" type="text" placeholder="Email" />
+                </div>
+
+                <div class="form-group">
+                    <label for="disabledTextInput">Explain how you plan to use this photo: *</label>
+                    <input class="form-control" type="text" placeholder="What's the photo for?" />
+                </div>
+
+                <div class="form-group">
+                    <label for="disabledTextInput">Explain how you plan to use this photo: *</label>
+                    
+                    <select class="form-control">
+                        <option class="">This is the option you</option>
+                    </select>  
+
+                </div>
+
+                <div class="form-group">
+                    <button class="btn btn-outline btn-white btn-large" data-dismiss="modal">Submit</button>
+                </div>-->
+                
+                {{formform}}
+                
+                <input class="btn btn-big btn-download btn-red button button--primary" style="text-align: center; margin: 0px auto; width: 70%; display: none;" data-drupal-selector="edit-download" type="submit" id="edit-download--107" name="op" value="Download Video">
+                
+                <a href="javascript:void(0);"></a>
+            </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
     <script type="text/javascript">
     	
     	$(document).ready(function(){
@@ -132,6 +188,28 @@
 <script type="text/javascript">
 	
 	$(function () {
+		var cid = getParameterByName('categoryid');
+		if( cid ) {
+			setTimeout(function(){
+				$('.selectpicker').val(cid);
+				$('.selectpicker').selectpicker('refresh');
+			}, 1500);
+
+		}
+		
+		$('.selectpicker').on('change', function(){
+		    var selected = $(this).find("option:selected").val();
+			
+			if(selected == 'All') {
+				var url = "{{ path('<front>') }}press-room/video-library";
+				location.href = url;
+			} else {
+				var url = "{{ path('<front>') }}press-room/video-library?categoryid=" + selected;
+				location.href = url;
+			}
+			
+		});
+		
 	    $("div.press-item-li").slice(0, 9).show();
 	    
 	    if ($("div.press-item-li").length > 9) {
@@ -164,18 +242,26 @@
 	  		$('.modal-codes').text(codes);
 	  		
 	  		$('.code-text').val(codes);
-	  		$('.site-name-text').val('Terror Behind The Walls');
+	  		$('.site-name-text').val('Eastern State Historic');
 	  		
 	  		$('.modal-description').text(description);
 	  		$('.modal-thumbnail').attr("src", thumbnail);
 	  		$('.press-modal').data("source", image);
 	  		$('.modal-credit').text(credit);
+	  		
 	  	});
 	  	
 	  	$('.btn-download').click(function(){
-		  	var dLink = window.location.origin + $('.press-modal').data("source");
+		  	var dLink = $('.press-modal').data("source");
 		  	window.open(dLink);	
-		  	location.reload();
+		  	//location.reload();
+	  	});
+	  	
+	  	$('#myImageModal').on('hidden.bs.modal', function () {
+		  	//if($('.btn-download').is(':visible')) {
+		  		$('#request-form-wrapper-id form').css('display', 'block');
+		  		$('.btn-download').css('display', 'none');
+		  	//}
 	  	});
 	});
 </script>

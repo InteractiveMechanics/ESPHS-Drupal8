@@ -1,3 +1,10 @@
+.press-ul {
+    li:last-of-type {
+        hr {
+            display: none;
+        }
+    }
+}
 .image-library-page {
 	
 	.list-item-image {
@@ -16,7 +23,19 @@
 	
 	.press-image {
 		position: relative;
-		margin-bottom:25px;
+		//margin-bottom:10px;
+		
+		a {
+			max-height: 200px;
+		    overflow: hidden;
+		    display: block;
+		    border: none !important;
+		}
+		
+		img {
+			height: auto;
+			width: 100%;
+		}
 		
 		&:hover {
 			> .overlay {
@@ -36,6 +55,7 @@
 		padding: 13px 14px;
 		cursor: pointer;
     	.glyphicon {
+	    	color: white;
     		display: block;
     	}
 	}
@@ -43,13 +63,16 @@
 	.caption {
 		font-style: italic;
 
+        p {
+            margin: 5px 0 20px;
+        }
 		strong {
 			color:#aaa;
 		}
 	}
 
 	hr {
-		margin-bottom:50px;
+		margin-bottom:25px;
 	}
 
 

@@ -6,7 +6,7 @@
 
 	ul {
 		li {
-			margin-bottom: 45px;
+			margin-bottom: 35px;
 
 			p {
 				margin-bottom:35px;
@@ -19,6 +19,10 @@
 			//font-weight:bold;
 			margin:0 0 10px 0;
 			line-height:20px;
+		}
+		
+		.form-control {
+			font-size: 16px;
 		}
 
 		input {
@@ -38,5 +42,31 @@
 				width: 36%;
 			}
 		}
+		
+		.btn-white {
+			&:active {
+				color: white !important;
+			}
+			
+			&:focus {
+				color: white !important;
+			}
+			
+			&:visited {
+				color: white !important;
+			}
+		}
 	}	
+	
+	.search-item {
+		a {
+			color: $scarlet;
+			transition: all 0.5s ease-in-out;
+			
+			&:hover {
+				text-decoration: none;
+				color: $dark-scarlet;
+			}
+		}
+	}
 }

@@ -1,5 +1,5 @@
 <div class="mobile-buy-now visible-xs">
-        <p class="text-center"><span class="glyphicon glyphicon-calendar"></span>  Buy Now & Save On Tickets!</p>
+        <p class="text-center"><span class="glyphicon glyphicon-calendar"></span>  Purchase Tickets</p>
     </div>
     <!-- menus here -->
 
@@ -31,7 +31,7 @@
                     </div>
                 </li>
 
-                <li>
+                <li class="hidden">
                     <div class="menu-item">
                         <h2>Shop</h2>
                         <div class="mobile-menu-items">
@@ -42,31 +42,15 @@
             </ul>
 
             <div class="mobile-label-links">
-                <p>
-                    <a href="javascript: void(0);">Press Room</a>
-                </p>
-
-                <p>
-                    <a href="javascript: void(0);">Support</a>
-                </p>
-
-                <p>
-                    <a href="javascript: void(0);">Resesarch</a>
-                </p>
-
-                <p>
-                    <a href="javascript: void(0);">About</a>
-                </p>
-
-                <p>
-                    <a href="javascript: void(0);">Jobs</a>
-                </p>
+                <ul> 
+                    {{render_menu('top-menu')}}
+                </ul>
             </div>
 
         </div>
 
         <div class="mobile-buy-now-menu">
-            <div class="mobile-search">
+            <a class="mobile-search" href="{{front_page}}search/node">
                 <svg version="1.1"
                 xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:a="http://ns.adobe.com/AdobeSVGViewerExtensions/3.0/"
                 x="0px" y="0px" width="27.6px" height="27.6px" viewBox="0 0 27.6 27.6" enable-background="new 0 0 27.6 27.6"
@@ -81,9 +65,9 @@
                         </g>
                     </g>
                 </svg>
-            </div>
+            </a>
             <div class="mobile-buy-now-save">
-                <h2><a href="https://secure.interactiveticketing.com/1.15/b70c6e/" target="_blank">Buy Now & Save</a></h2>
+                <h2><a href="https://secure.interactiveticketing.com/1.15/b70c6e/" target="_blank">Purchase Tickets</a></h2>
                 <svg version="1.1"
                 xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:a="http://ns.adobe.com/AdobeSVGViewerExtensions/3.0/"
                 x="0px" y="0px" width="26.5px" height="20.4px" viewBox="0 0 26.5 20.4" enable-background="new 0 0 26.5 20.4"
@@ -194,13 +178,13 @@
             </li>
 
             <li>
-                <a href="http://dev.interactivemechanics.com/easternstate/" class="switch-caret">
+                <a href="{{ path('<front>') }}" class="switch-caret">
                     Eastern State Penitentiary
                 </a>
             </li>
 
             <li>
-                <a href="http://dev.interactivemechanics.com/easternstate/halloween/" class="switch-caret">
+                <a href="{{ path('<front>') }}halloween/" class="switch-caret">
                     Terror Behind the Walls
                 </a>
             </li>
@@ -208,7 +192,7 @@
     </div>
 
 
-    <header class="navbar">
+    <header class="navbar" style="z-index:300;">
         <a class="navbar-logo" href="{{ path('<front>') }}">
             <img src="{{front_page}}themes/historic/assets/header-logo@2x.png">
         </a>
@@ -226,7 +210,7 @@
               <div class="container-fluid">
                 <ul class="nav navbar-upper">
                   {{render_menu('top-menu')}}
-                    <li><a href="http://dev.interactivemechanics.com/easternstate/search/node">
+                    <li><a href="{{ path('<front>') }}search/node">
                         <svg version="1.1" id="search-icon"
                         xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:a="http://ns.adobe.com/AdobeSVGViewerExtensions/3.0/"
                         x="0px" y="0px" width="27.6px" height="27.6px" viewBox="0 0 27.6 27.6" enable-background="new 0 0 27.6 27.6"
@@ -279,9 +263,14 @@
 						</ul>
                     
                     </li>
-                    <li>
-                    
-                    	<a href="#">Explore</a>
+                    <li class="dropdown">
+                        <a  href="javascript: void(0);" 
+                            class="dropdown-toggle " 
+                            data-toggle="dropdown" 
+                            role="button" aria-haspopup="true" aria-expanded="false">
+                            
+                            Explore
+                        </a>
                     
                     	<ul class="dropdown-menu">
                            {{render_menu('explore-menu')}}
@@ -289,7 +278,7 @@
                     </li>
                     <li style="display:none;"><a href="#">Shop</a>
                     </li>
-                    <li><a class="red-link" href="https://secure.interactiveticketing.com/1.15/b70c6e/" target="_blank"><strong>Buy Now & Save</strong></a>
+                    <li><a class="red-link" href="https://secure.interactiveticketing.com/1.15/b70c6e/" target="_blank"><strong>Purchase Tickets</strong></a>
                     </li>
                   </ul>
                 </div>

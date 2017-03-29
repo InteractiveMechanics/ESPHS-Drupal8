@@ -40,6 +40,11 @@ body {
 }
 .mobile-menu-top {
     padding: 30px;
+    position: absolute;
+    top: 0;
+    bottom: 265px;
+    width: 100%;
+    overflow: auto;
 	
 	address {
 		margin-bottom: 0px;
@@ -58,15 +63,20 @@ body {
 			font-size: 13px;
 			font-weight: 300;
 			line-height: 26px;
+            text-align: left;
 	 	a {
 	        color: white;
 			font-size: 13px;
 			font-weight: 300;
 			line-height: 26px;
-			float: right;
 			
 	    }   
     }
+    
+    .facebook, .twitter, .instagram, .pinterest {
+		margin-top: 20px !important;
+		
+	}
     
 
     ul {
@@ -93,23 +103,28 @@ body {
 
         ul {
             li{
-                margin-bottom:20px;
-                font-size: 13px;
+                font-size: 14px;
+
+                &.active {
+                    > a { color: $scarlet; }
+                }
+
                 a {
                     color: $black;
+                    margin-bottom: 10px;
+                    display: block;
+                }
+
+                > ul {
+                    margin-left: 20px;
                 }
             }
-        }
-        .list-left {
-            float: left;
-            margin-right: 20px;
-
         }
     }
 
     > ul {
         margin-bottom: 25px;
-        display: flex;
+        //display: flex;
         
         > li {
             border-bottom: 1px solid #ddd;
@@ -120,16 +135,20 @@ body {
 
 .mobile-menu-address-wrapper {
     background-color: $indigo;
-    height: 100%;
+    height: 200px;
+    top: auto;
+    bottom: 0;
 }
 
 .mobile-label-links {
-    p {
+    li {
         a {
             font-size: 15px;
             font-weight: bold;
             text-transform: uppercase;
-            color:#95959c;
+            color:#95959c !important;
+            display: block;
+            line-height: 2.1;
 
             &:hover {
                 text-decoration: none;
@@ -141,17 +160,28 @@ body {
 .mobile-search {
     float: left;
     background-color: #ffffff;
-    padding: 16px 20px;
+    padding: 20px 18px;
     transition: $transition;
+    height: 65px;
+    width: 65px;
+    text-align: center;
+    display: block;
+
     &:hover {
         background-color: $sand;
+
         svg path{
             fill: #ffffff;
         }
     }
     svg {
-        height: 25px;
+        height: 23px;
         fill: $sand;
+        transition: $transition;
+
+        path {
+            transition: $transition;
+        }
     }
 }
 
@@ -162,10 +192,21 @@ body {
     cursor: pointer;
     text-transform: uppercase;
     font-family: $sans-serif;
+    position: absolute;
+    bottom: 200px;
+    width: 100%;
+    overflow: hidden;
+
     .mobile-buy-now-save {
         background-color: $scarlet;
-        padding: 18px 0px 18px 95px;
+        padding: 11px 0px 11px 85px;
         transition: $transition;
+        height: 65px;
+
+        @media screen and ($screen-xs) {
+            padding-top: 17px;
+        }
+
         h2 {
             margin: 0px;
             color: #ffffff;
@@ -177,6 +218,7 @@ body {
             
             a {
 	            color: white;
+                font-size: 21px;
 	            
 	            &:hover {
 		            text-decoration: none;
@@ -188,7 +230,7 @@ body {
             height: 17px;
         }
         &:hover {
-            background-color: $sand;
+            background-color: darken($scarlet, 10%);
             h2 {
                 color: #ffffff;
             }
@@ -206,8 +248,7 @@ body {
                 width: 40px;
                 height: 40px;
                 font-size:14px !important;  
-
-                 
+                
             }
         }
     }
@@ -232,7 +273,9 @@ body {
     align-items: center;
     transition: $transition;
     margin-right: 10px !important;
-    margin-top: 20px !important;
+    float: left;
+    padding-top: 6px !important;
+
     svg {
         fill: #ffffff;
     }
@@ -260,13 +303,13 @@ body {
 }*/
 
 .hours-wrapper {
-   float: left;
+    float: left;
     width: 48%;
     height: 50px;
     font-weight: 300;
     color: #ffffff;
-    font-size: 14px;
-    line-height: 1.6;
+    font-size: 13px;
+    line-height: 26px;
 }
 
 .address {
@@ -279,7 +322,7 @@ body {
 
 .c-mask {
     position: fixed;
-    z-index: 100;
+    z-index: 1040;
     top: 0;
     left: 0;
     overflow: hidden;

@@ -29,7 +29,7 @@
 
                         <div class="row">
                             <div class="col-sm-10">
-                            <img id="prison-map" src="http://dev.interactivemechanics.com/easternstate/themes/historic/assets/prison-gfx@2x.png" alt="prison map" title="" />
+                            <img id="prison-map" src="{{ path('<front>') }}themes/historic/assets/prison-gfx@2x.png" alt="prison map" title="" />
                             
                             {% for marker in markers %}
                             	<!--<a href="javascript:void(0);">
@@ -42,7 +42,7 @@
 								</a>-->
 								
 								
-								<button type="button" class="btn marker" data-title="" data-desc="" data-iframe='' style="top: {{marker.field_tour_stop_top.value}}%; left: {{marker.field_tour_stop_left.value}}%;">
+								<button type="button" class="btn marker" data-title="{{marker.title.value}}" data-desc="{{marker.body.value|raw|striptags}}" data-embed="{{marker.field_tour_embed_code.value}}" data-lat="{{marker.field_latitude.value}}" data-long="{{marker.field_longitude.value}}"  style="top: {{marker.field_tour_stop_top.value}}%; left: {{marker.field_tour_stop_left.value}}%;">
 		                            <svg version="1.1" 
 												 xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:a="http://ns.adobe.com/AdobeSVGViewerExtensions/3.0/"
 												 x="0px" y="0px" width="39px" height="48.3px" viewBox="0 0 39 48.3" enable-background="new 0 0 39 48.3" xml:space="preserve">
@@ -71,10 +71,9 @@
                             <div class="modal-content">
                               <div class="modal-body">
                                 <div class="iframe-wrapper">
-<!--                                 <iframe class="mapImage" src="https://www.google.com/maps/embed?pb=!1m0!3m2!1sen!2sus!4v1485287588814!6m8!1m7!1sF%3A-T2E6P09l4qE%2FVygwc8ANGsI%2FAAAAAAABApM%2F8R0PLeHGel8z4zagDcpcwN1aN0DI0rV-ACJkC!2m2!1d39.9683364!2d-75.17266479999999!3f46!4f-2!5f0.7820865974627469" width="600" height="450" frameborder="0" style="border:0" allowfullscreen></iframe> -->
 									 <div id="street-view"></div>
                                 </div>
-                                <div class="modal-text-wrapper">
+                                <div class="modal-text-wrapper tour-modal-wrapper">
                                     <h3>Central Guard Tower</h3>
                                     <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
                                 </div>

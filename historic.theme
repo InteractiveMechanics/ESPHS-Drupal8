@@ -1,11 +1,13 @@
 <?php
 	
 	function historic_theme_suggestions_alter(array &$suggestions, array &$variables, $hook) {
-		//$form = \Drupal::formBuilder()->getForm('Drupal\photorequest\Form\RequestForm');
-		//$variables['formform'] = $form;
+		$form = \Drupal::formBuilder()->getForm('Drupal\photorequest\Form\RequestForm');
+		$variables['formform'] = $form;
 		
 		//$variables['press_contact_1'] = theme_get_setting('press_contact_1');
 		//$variables['press_contact_2'] = theme_get_setting('press_contact_2');
+		
+		
 		
 		$query = \Drupal::entityQuery('taxonomy_term');
 		$query->condition('vid', "press_categories");
@@ -13,12 +15,42 @@
 		$terms = array_values(\Drupal\taxonomy\Entity\Term::loadMultiple($tids));
 		
 		$variables['press_categories'] = $terms;
+		
+		$variables['press_contact_1'] = theme_get_setting('press_contact_1');
+		$variables['press_contact_2'] = theme_get_setting('press_contact_2');
+		
 	}
 
 	function historic_theme_suggestions_node_alter(array &$suggestions, array &$variables)  {
+		/*$my_form = \Drupal\webform\Entity\Webform::load('school_group_tours');
+		$variables['my_form'] = $my_form;
+		
+		$webform = \Drupal::entityTypeManager()->getStorage('webform')->load('school_group_tours');
+		$webform = $webform->getSubmissionForm();
+		$output = \Drupal::entityManager()->getViewBuilder('webform')->view($my_form);
+		
+		$variables['webform_field'] = $output;*/
+		
+		//var_dump($output);
+		
+		$variables['press_contact_1'] = theme_get_setting('press_contact_1');
+		$variables['press_contact_2'] = theme_get_setting('press_contact_2');
 		
 		$node = \Drupal::routeMatch()->getParameter('node');
 		$contentType = $node->getType();
+				
+		if($contentType == 'page_flexible_static') {
+			$form_name = $node->field_webform[0]->target_id;
+			
+			
+			if($form_name) {
+				//$webform = \Drupal::entityTypeManager()->getStorage('webform')->load($form_name);
+				$my_form = \Drupal\webform\Entity\Webform::load($form_name);
+				//$webform = $webform->getSubmissionForm();
+				$output = \Drupal::entityManager()->getViewBuilder('webform')->view($my_form);
+				$variables['webform_field'] = $output;
+			}
+		}
 		
 		$node = \Drupal::routeMatch()->getParameter('node');
 		
@@ -41,6 +73,7 @@
 			
 			$variables['press_item'] = array_values($arr);
         }
+        
 		
 	}
 	

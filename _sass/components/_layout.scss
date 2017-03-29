@@ -1,6 +1,8 @@
 body {
 	background: $buff;
-
+	&.modal-open {
+	    overflow: auto;
+	}
 	main {
 		padding: 0 45px;
 		@include screen-xs {
@@ -12,19 +14,26 @@ body {
 			font-size:21px;
 		}	
 	}
+	
+	.padded-box {
+		a {
+			color: $scarlet;
+			
+			&:hover {
+				color: $dark-scarlet;
+				text-decoration: none;
+				transition:$transition;	
+			}
+		}
+	}
 }
 
 .relative-position {
 	position: relative;
 	
 	.tooltip {
-		padding:15px !important;
 		font-size: 15px;
 		font-style: italic;
-		
-		&.left {
-			padding:15px !important;
-		}
 	}
 }
 
@@ -154,17 +163,24 @@ body {
 	}
 
 	h1 {
-		font-size: 82px;
+		font-size: 65px;
 		color:white;
 		font-family: $sans-serif;
 	    text-shadow: 3px 5px 0px rgba(25, 25, 25, 0.3);
+	
+	    @include screen-sm {
+	    	font-size: 40px;
+    		text-transform: initial;
+    		margin-top: 0px;
+	    }
+	    
 	    @include screen-xs {
-	    	font-size: 60px;
+	    	font-size: 32px;
     		text-transform: initial;
     		margin-top: 0px;
 	    }
 	    @include screen-xxs {
-	    	font-size: 50px;
+	    	font-size: 30px;
 	    }
 	}
 
@@ -177,7 +193,7 @@ body {
 	}
 
 	.generic-hero {
-		background-size: 150%;
+		background-size: cover;
 		background-position: initial;
 		background-repeat: no-repeat;
 		background-image: linear-gradient(to bottom, rgba(0,0,0,0) 0%,rgba(0,0,0,0) 20%,rgba(0,0,0,0.65) 100%), url(../../assets/hero-images/hero-image-03@2x.jpg);
@@ -232,12 +248,14 @@ body {
 			height: 300px;
 		}
 		@include screen-xxs {
-			padding: 20px;
+			padding: 30px;
 		}
 		    
 		section {
 			position:absolute;
 			bottom: 100px;
+            margin-right: 60px;
+
 			@include screen-ltmd {
 				position: relative;
 			    bottom: initial;
@@ -245,9 +263,11 @@ body {
 			    flex-direction: column;
 			    height: 100%;
 			    justify-content: flex-end;
+                margin-right: 0;
 			}
 			@include screen-md {
 				bottom: 50px;
+                margin-right: 20px;
 			}
 		}
 		
@@ -270,13 +290,13 @@ body {
 
 	figcaption { 
 	    padding: 20px 0 25px;
-	    border-bottom: 1px solid $gray;
+	    border-bottom: 1px solid lighten($gray, 25%);
 	    margin-bottom: 45px;
 	    font-size:16px;
 	    color: $black;
 	    font-weight: 300;
 	}
-
+	
 	.panel {
 		box-shadow: none;
 	}
@@ -301,14 +321,41 @@ body {
 		}
 
 		h4 {
+			font-size: 21px;
+			padding: 12px 0;
 			a {
 				display:block;
 				padding-top:14px;
 				padding-bottom:14px;
 				color: $red;
 
-				&:hover, &:focus, &:active {
-					text-decoration:none;
+				&:hover {
+					text-decoration: none !important !important;
+				}
+				
+				&:focus {
+					text-decoration: none !important !important;
+				}
+				
+				&:active {
+					text-decoration: none !important !important;
+				}
+				
+				&:after {
+				    /* symbol for "opening" panels */
+				    font-family: 'Glyphicons Halflings';  /* essential for enabling glyphicon */
+				    content: "\e252";    /* adjust as needed, taken from bootstrap.css */
+				    float: left;        /* adjust as needed */
+				    color: $red;         /* adjust as needed */
+				    padding-right:10px;
+			        font-size: 15px;
+			        top: 4px;
+			        position: relative;
+				}
+				
+				&.collapsed:after {
+				    /* symbol for "collapsed" panels */
+				    content: "\e250";    /* adjust as needed, taken from bootstrap.css */
 				}
 			}
 		}
@@ -319,6 +366,11 @@ body {
 .padded-box {
 	padding: 65px 105px;
 	background: $dark-buff;
+	background-image: url(../../assets/page-bg@2x.png);
+    background-repeat: no-repeat;
+    background-position: left bottom;
+    background-size: cover;
+	
 	@include screen-ltmd {
 		padding: 30px;
 	}
@@ -441,6 +493,8 @@ label {
 	-webkit-box-shadow: 0px 10px 1px -6px rgba(163,161,163,1);
 	-moz-box-shadow: 0px 10px 1px -6px rgba(163,161,163,1);
 	box-shadow: 0px 10px 1px -6px rgba(163,161,163,1);
+	z-index: 100000000000000;
+	
 	@include screen-md {
 		width: 375px;
 	}
@@ -507,16 +561,27 @@ label {
 	}
 }
 
-.tooltip.left {
+/*.tooltip.left {
 	margin-left: -10px;
     margin-top: -3px;
 }
 
 .tooltip-inner{
 	border-radius: 0px;
-    padding: 6px 16px;
     max-width: 100%;
+}*/
+
+.info-icon {
+    cursor: pointer;
+    background: url(../../assets/icons/icon-info.svg);
+    width: 24px;
+    height: 24px;
+    background-size: 24px;
+    background-repeat: no-repeat;
+    position: absolute;
+    right: 20px;
+    bottom: 20px;
+    fill: rgba(250, 250, 250, 0.5);	
+    transition: $transition;
 }
-
-
 

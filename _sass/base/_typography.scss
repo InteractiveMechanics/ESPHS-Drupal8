@@ -8,6 +8,31 @@ h1, h2, h3, h4, h5 {
 	font-family: $sans-serif;
 }
 
+h1, h2, h3 {
+	
+	a {
+		color: $black;
+		
+		&:hover {
+			color: $red;
+			text-decoration: none !important;
+			border-bottom: 1px dotted $red;
+		}
+	}
+}
+
+h4, h5 {
+	
+	a {
+		color: $black;
+		
+		&:hover {
+			color: $red;
+			text-decoration: none !important;
+			border: none !important;
+		}
+	}
+}
 
 h1 {
 	letter-spacing: 1px;
@@ -24,6 +49,7 @@ h4 {
 h6 {
 	text-transform: uppercase;
 	font-family: $roboto;
+    font-size: 14px;
 	color: $gray;
 }
 

@@ -132,10 +132,9 @@ $(function(){
         var endZone = $('footer').offset().top - $window.height() - 200;
         
         // checks if the user's position is past the startZone and further from the top than the endZone
-        if ($window.scrollTop() > startZone && $window.scrollTop() < endZone) {
+        if ($window.scrollTop() > startZone) {
             // if the condition is true, the box slides from the right to the edge of the page and this takes 150 milliseconds
             $callout.animate({'opacity': '1.0'}, 200);
-
         } else {
             // if the condition is false or the box is in the middle of animating, it is stopped and the callout then slides off the right hand side of the page, takeing 150 milliseconds
            $callout.stop(true).animate({'opacity': '0'}, 200);
@@ -147,10 +146,21 @@ $(function(){
 
 	
 	$('.marker').click(function() {
+		var _lat = $(this).data('lat');
+		var _long = $(this).data('long');
+		var _title = $(this).data('title');
+		var _body = $(this).data('desc');
+        var _embed = $(this).data('embed');
+		
 		$(this).addClass('tour-modal-active');
-		initialize();
+		//initialize(_lat, _long);
+		
+		$('.tour-modal-wrapper h3').text(_title);
+		$('.tour-modal-wrapper p').text(_body);
+        $('#street-view').html('<iframe src="' + _embed + '" width="100%" height="100%" frameborder="0" style="border:0" allowfullscreen></iframe>')
 		$('#tour-modal').modal('show');
 		$('.marker').not(this).removeClass('tour-modal-active');
+		$('body').css('paddingRight', '0px');
 	})
 	
 	
@@ -167,16 +177,23 @@ $(function(){
         
         
     var panorama;
-    function initialize() {
-        panorama = new google.maps.StreetViewPanorama(
-            document.getElementById('street-view'),
-            {
-              position: {lat: 39.9683364, lng:-75.1726648},
-              pov: {heading: 165, pitch: 0},
-              zoom: 1,
-              zoomControl: true,
-              disableDefaultUI: true 
-            });
+    function initialize(_lat, _long) {
+	    
+	    if(panorama) {
+		    panorama.setPosition(new google.maps.LatLng(_lat, _long));
+			panorama.setPov({ heading: 165, pitch: 0});
+			panorama.setZoom({zoom: 1});
+			panorama.zoomControl = true;
+			panorama.disableDefaultUI = true;
+	    } else {
+		    panorama = new google.maps.StreetViewPanorama(document.getElementById('street-view'), {
+	            position: {lat: _lat, lng: _long},
+	            pov: {heading: 165, pitch: 0},
+	            zoom: 1,
+	            zoomControl: true,
+	            disableDefaultUI: true 
+	        });
+	    }
     }
     
         

@@ -6,13 +6,8 @@
                 <div class="row">
 
                     <div class="col-md-12">
-                        <div class="subpage-hero-details generic-hero" style="background-image: linear-gradient(to bottom, rgba(0,0,0,0) 49%,rgba(0,0,0,0.01) 50%,rgba(0,0,0,0.35) 100%), url({{baseurl}}/themes/tbtw/assets/hero-images/tbtw-hero-overlay@2x.png.png), url(http://dev.interactivemechanics.com/esp_historic/Eastern-State-Website/assets/hero-images/hero-image-01@2x.jpg);">
+                        <div class="subpage-hero-details generic-hero" style="background-image: linear-gradient(to bottom, rgba(0,0,0,0) 49%,rgba(0,0,0,0.01) 50%,rgba(0,0,0,0.35) 100%), url({{ path('<front>') }}themes/historic/assets/hero-images/hero-image-01@2x.jpg);">
                             <section>
-                                <ol class="breadcrumb">
-                                    <li><a href="#">Home</a></li>
-                                    <li class="active"><a href="#">Search</a></li>
-                                </ol>
-
                                 <h1 class="subpage-title">Search</h1>
                             </section>
                         </div>
@@ -33,7 +28,7 @@
                 	<div class="row">
                         <div class="col-md-8">
                             <div class="search-box">
-                                <p>Search by keyword or title:</p>
+                                <label>Search by keyword or title:</label>
 
                                 <form class="form-inline" action="/easternstate/search/node">
                                     <button type="submit" class="btn btn-white" style="float: right;">Submit</button>
@@ -51,7 +46,7 @@
                         <div class="row">
                         	
                         	<div class="col-md-8">
-                        	
+                        		
                         		{% if not items is empty %}									
 									
 									<ul class="list-unstyled">
@@ -66,12 +61,6 @@
 							                  {%- for item in items -%}
 							                    <li>
 							                    {{ item.value }}
-			                                    <!--<div class="list-item-detail">
-			                                        <h3><a href="{{ item['#result'].link }}">{{ item['#result'].title }}</a></h3>
-			                                        <p>
-			                                           Test
-			                                        </p>
-			                                    </div>-->
 			                                    <hr>
 			                                </li>
 			                                
@@ -83,11 +72,12 @@
 										</ul>
 								    
 									{% else %}
-										<div class="">
+										<div class="no-results" style="display:none;">
 								            <h2 class="text-muted">No results found</h2>
 											<p class="text-muted"><em>Try expanding or refining your search keywords or terms.</em></p>
 										</div>
 									{% endif %}
+	                        		
 	                        		
 	                        	</div>
 	                        	
@@ -103,6 +93,26 @@
 	
 	        </div>
 	        
+	
+	<script type="text/javascript">
+		function getParameterByName(name, url) {
+		    if (!url) {
+		      url = window.location.href;
+		    }
+		    name = name.replace(/[\[\]]/g, "\\$&");
+		    var regex = new RegExp("[?&]" + name + "(=([^&#]*)|&|#|$)"),
+		        results = regex.exec(url);
+		    if (!results) return null;
+		    if (!results[2]) return '';
+		    return decodeURIComponent(results[2].replace(/\+/g, " "));
+		}
+		
+		var val = getParameterByName('keys');
+		
+		if(val != null) {
+			$('.no-results').show();
+		}
+	</script>	        
 	{#
 	/**
 	 * @file

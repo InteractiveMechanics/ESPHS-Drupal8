@@ -11,11 +11,27 @@ input {
     	@include input();
     }
 
+    &[type="password"] {
+    	@include input();
+    }
+
     &[type="search"] {
     	@include input();
     }
 
     &[type="email"] {
+    	@include input();
+    }
+    
+    &[type="date"] {
+    	@include input();
+    }
+    
+    &[type="tel"] {
+    	@include input();
+    }
+    
+    &[type="number"] {
     	@include input();
     }
 
@@ -32,10 +48,47 @@ input {
 	}
 }
 
+input[type='radio'] {
+   		-webkit-appearance: none;
+   		&:after {
+	   	
+	   			width: 16px;
+			    height: 16px;
+			    border-radius: 16px;
+			    top: -2px;
+			    left: -1px;
+			    position: relative;
+			    background-color: #ffffff;
+			    box-shadow: 0px 1px 2px rgba(120,120,120,0.5);
+			    content: '';
+			    display: inline-block;
+			    visibility: visible;
+			    border: 3px solid white;
+		    
+   		}
+   		&:checked {
+   			&:after {
+	   				width: 16px;
+				    height: 16px;
+				    border-radius: 16px;
+				    top: -2px;
+				    left: -1px;
+				    position: relative;
+				    background-color: $scarlet;
+				    box-shadow: 0px 1px 2px rgba(120,120,120,0.5);
+				    content: '';
+				    display: inline-block;
+				    visibility: visible;
+				    border: 3px solid white;
+			   
+   			}
+   		}
+	}
+
 select {
 	&.form-control {
 		line-height:normal;
-	    height:40px;
+	    height:50px;
 	    -webkit-appearance:none;
 	    -moz-appearance:none;
 	    -ms-appearance:none;
@@ -43,16 +96,16 @@ select {
 	    display:block;
 	    width:100%;
 	    color:#9f9f9f;
-	    padding:8px 20px 7px 10px;
+	    padding: 12px 20px 12px 15px;
 	    line-height:normal;
-	  	background: #4c545c;
+	  	background: #ffffff;
 		border-radius: 0px;
 		border: 0px;
-		border-bottom: 2px solid #2c3135;
+		border-bottom: 2px solid #dcdbdb;
 		font-style:italic;	
 		background-image: linear-gradient(45deg, transparent 50%, gray 50%), linear-gradient(135deg, gray 50%,transparent 50%);
-	  	background-position: calc(100% - 20px) calc(1em + 2px), calc(100% - 15px) calc(1em + 2px),calc(100% - 2.5em) 0.5em;
-	  	
+	  	background-position: calc(100% - 20px) calc(1em + 8px), calc(100% - 15px) calc(1em + 8px), calc(100% - 2.5em) 0.5em;
+	  	font-weight: 300;
 	  	background-size: 5px 5px, 5px 5px, 1px 1.5em;
 	  	background-repeat: no-repeat;
 	}
@@ -129,4 +182,68 @@ button[type='submit'] {
 
 sup {
 	color: $scarlet;
+}
+
+
+.static-page-form {
+	
+	
+	.js-form-type-radio {
+		display: inline-block;
+		margin-right: 30px !important;
+	}
+	legend {
+		margin-bottom: 5px;
+		padding-bottom: 5px;
+	}
+	
+	textarea {
+		width: 100%;
+		background: #ffffff;
+		border-radius: 0px;
+		padding: 10px 15px;
+		border: 0px;
+		border-bottom: 2px solid #dcdbdb;
+		font-weight: 300;
+	}
+	
+	input {
+    
+    	.bootstrap-select {
+    		width: 100% !important;
+    	}
+    	select {
+	    	width: 100%;
+    	}
+
+	    &[type="text"] {
+		    width: 100%;
+	    	@include input();
+	    }
+	
+	    &[type="search"] {
+		    width: 100%;
+	    	@include input();
+	    }
+	
+	    &[type="email"] {
+		    width: 100%;
+	    	@include input();
+	    }
+	    
+	    &[type="date"] {
+		    width: 100%;
+	    	@include input();
+	    }
+	    
+	    &[type="tel"] {
+		    width: 100%;
+	    	@include input();
+	    }
+	    
+	    &[type="number"] {
+		    width: 100%;
+	    	@include input();
+	    }
+	}
 }

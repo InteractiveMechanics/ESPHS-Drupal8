@@ -104,6 +104,16 @@
 	
 	.main-content-subpages {
 		margin-bottom: 0px !important;
+		
+		.sub-headline {
+			margin: 10px 0 0 !important;
+		}
+		
+		.press-items {
+			.col-md-4 {
+				margin-bottom: 30px;
+			}
+		}
 	}
 
 	
@@ -123,10 +133,30 @@
 	}
 
 	.hero-section {
+		
+		
+		
+		.slick-dots {
+			display: none !important;
+		}
 
 		.jumbotron {
 			padding: 10px 0px 0px 0px !important;
-			height: 100%;
+			height: 400px;
+			
+			.homepage-slider-single {
+				width: 90% !important;
+				margin-left: auto !important;
+				margin-right: auto !important;
+                right: auto;
+                position: relative;
+                top: 120px;
+                
+                p {
+                    font-size: 16px;
+                }
+			}
+			
 
 			h1 {
 				font-size: 40px;
@@ -258,6 +288,16 @@
 @media ($screen-xxs) {
 	.main-content-subpages {
 		margin-bottom: 0px !important;
+		
+		.sub-headline {
+			margin: 10px 0 0 !important;
+		}
+		
+		.press-items {
+			.col-md-4 {
+				margin-bottom: 30px;
+			}
+		}
 	}
 	
 	.show-site-switcher {

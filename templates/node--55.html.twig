@@ -37,7 +37,7 @@
                             </div>
 
                             <div class="col-md-6">
-                                <p>Latest Press Release</p>
+                                <h6>Latest Press Release</h6>
                                 <h2><a href="{{ path('entity.node.canonical', {'node': press_item[0].nid.value}) }}">{{press_item[0].title.value}}</a></h2>
                                 {{press_item[0].body.summary|raw}}
                             </div>
@@ -60,7 +60,7 @@
                                 <div>
                                     <div class="press-image">
                                         <a href="{{ path('<front>') }}press-room/press-releases">
-                                        	<img class="img-responsive" src="http://placehold.it/850x465">
+                                        	<img class="img-responsive" src="{{ path('<front>') }}themes/historic/assets/press.jpg">
                                         </a>
                                     </div>
                                     <h2><a href="{{ path('<front>') }}press-room/press-releases">Press Releases</a></h2>
@@ -72,7 +72,7 @@
                                 <div>
                                     <div class="press-image">
                                         <a href="{{ path('<front>') }}press-room/image-library">
-                                        	<img class="img-responsive" src="http://placehold.it/850x465">
+                                        	<img class="img-responsive" src="{{ path('<front>') }}themes/historic/assets/image.jpg">
                                         </a>
 									</div>
                                     <h2><a href="{{ path('<front>') }}press-room/image-library">Image Library</a></h2>
@@ -84,7 +84,7 @@
                                 <div>
                                     <div class="press-image">
                                         <a href="{{ path('<front>') }}press-room/video-library">
-                                        	<img class="img-responsive" src="http://placehold.it/850x465">
+                                        	<img class="img-responsive" src="{{ path('<front>') }}themes/historic/assets/video.jpg">
                                         </a>
                                     </div>
                                     <h2><a href="{{ path('<front>') }}press-room/video-library">Video Library</a></h2>
@@ -94,6 +94,9 @@
                                 
                         </div>
                     </div>
+                    
+                    
+                {% include directory ~ '/inc/press-contact.html.twig' %}
                     
                 </div>
 

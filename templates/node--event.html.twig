@@ -3,9 +3,12 @@
 	<div id="callout">
         <h3>{{node.field_callout.entity.title.value|raw}}</h3>
         <p>{{node.field_callout.entity.body.value|raw}}</p>
-        <a href="{{node.field_callout.entity.field_link.uri}}">Explore Eastern State's History 
-        </a>
-        {{node.field_callout.entity.field_link[0]['#url']}}
+        {% if node.field_callout.entity.field_link.uri starts with 'entity' %}
+			{% set urlLink = node.field_callout.entity.field_link.uri|split('/')|last %}
+			<a href="{{ path('entity.node.canonical', {'node': urlLink}) }}">
+				{{node.field_callout.entity.field_link.title}}
+			</a> 
+		{% endif %}
             <svg version="1.1"
             xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:a="http://ns.adobe.com/AdobeSVGViewerExtensions/3.0/"
             x="0px" y="0px" width="17.5px" height="10.2px" viewBox="0 0 17.5 10.2" enable-background="new 0 0 17.5 10.2"
@@ -53,12 +56,25 @@
 
                 <div class="row">
                     <div class="col-md-7">
+                        <h6 class="sub-headline">
+                            {{node.field_event_date.value|date("F j, Y, g:i a", "Etc/GMT+8")}}
+                            {% set start_date = node.field_event_date.value|date("F j, Y", "Etc/GMT+8") %}
+        
+                            {% if node.field_event_end_date.value %}
+                                &ndash; 
+                                {% if start_date == node.field_event_end_date.value|date("F j, Y", "Etc/GMT+8") %}
+                                    {{node.field_event_end_date.value|date("g:i a", "Etc/GMT+8")}}
+                                {% else %}
+                                    {{node.field_event_end_date.value|date("F j, Y, g:i a", "Etc/GMT+8")}}
+                                {% endif %}
+                            {% endif %}
+                        </h6>
                         <h1>{{node.title.value}}</h1>
                     </div>
                 </div>
 
                 <div class="row">
-                    <div class="col-md-7">
+                    <div class="col-md-8 col-sm-12 col-xs-12 body-area node-body-area">
                         <p>
                             {{node.body.value|raw}}
                         </p>
@@ -67,7 +83,7 @@
                 
                 <div class="accordion">
                     <div class="row">
-                        <div class="col-md-7">
+                        <div class="col-md-8 col-sm-12 col-xs-12">
 
 
                             <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
@@ -99,7 +115,7 @@
 
 
     </div>
-    
+    {% include directory ~ '/inc/figure-image-js.html.twig' %}
     
     <script type="text/javascript">
     	$(document).ready(function(){
