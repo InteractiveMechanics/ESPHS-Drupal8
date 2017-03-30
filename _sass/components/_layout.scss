@@ -1,3 +1,7 @@
+.pager__items {
+	display: none;
+}
+
 body {
 	background: $buff;
 	&.modal-open {

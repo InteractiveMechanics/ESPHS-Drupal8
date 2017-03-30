@@ -54,7 +54,7 @@
 		
 		$node = \Drupal::routeMatch()->getParameter('node');
 		
-		$base_url = "http://dev.interactivemechanics.com/easternstate/halloween";
+		$base_url = "https://www.easternstate.org";
 		$variables['baseurl'] = $base_url;
 		
 		if($node->id() == 53) {

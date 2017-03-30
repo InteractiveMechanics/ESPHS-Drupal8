@@ -812,6 +812,9 @@ body.has-active-menu {
 .c-menu--push-right.is-active {
   transform: translateX(0); }
 
+.pager__items {
+  display: none; }
+
 body {
   background: #F9F5EF; }
   body.modal-open {
