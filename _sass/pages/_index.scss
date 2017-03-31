@@ -50,6 +50,13 @@
 	   @include screen-xs {
 	   		height: 400px;
 	   }
+	   
+	   #mobile-background {
+			
+			@include screen-gtmd {
+				display: none;
+			}
+		}
 	    
 	    #homepage-slider {
 	    	height: 650px;
@@ -132,6 +139,7 @@
 	    	}
 	    }*/
 	    
+	    
 	   
 
 	   .container2 {
@@ -158,17 +166,13 @@
 		  }
 		}
 		
-		#img-background-homepage {
-			position: absolute;
-			height: auto;
-			width: auto;
-			left: 50%;
-			top: 50%;
-			-webkit-transform: translate3d(-50%, -50%, 0);
-			transform: translate3d(-50%, -50%, 0);
-		  z-index: -1;
-			
+		#mobile-background {
+			z-index: -1;
+			@include screen-gtmd {
+				display: none;
+			}
 		}
+		
 		
 		h1 {
     		margin-bottom:60px;
