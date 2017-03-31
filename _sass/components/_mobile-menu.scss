@@ -278,12 +278,22 @@ body {
 
     svg {
         fill: #ffffff;
+        position: relative;
+        top: -1px;
+        transition: $transition;
     }
     &:hover {
         border-color: $gray;
         border-bottom: 1px solid $gray;
         svg {
             fill: $gray;
+        }
+    }
+}
+.mobile-menu-top  {
+    .facebook, .twitter, .instagram, .pinterest {
+        svg {
+            top: -3px;
         }
     }
 }
