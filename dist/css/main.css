@@ -26,8 +26,8 @@
   animation: fadeIn 1s 1 forwards; }
 
 .align-right {
-  width: 50%;
-  margin: 30px 0 0 30px; }
+  min-width: 25%;
+  margin: 10px 0 0 30px; }
   .align-right img {
     width: 100%; }
   @media screen and (max-width: 767px) {
@@ -35,17 +35,19 @@
       width: 100%; } }
 
 .align-left {
-  width: 50%;
-  margin: 30px 30px 0 0; }
+  min-width: 25%;
+  margin: 10px 30px 0 0; }
   .align-left img {
     width: 100%; }
   @media screen and (max-width: 767px) {
     .align-left {
       width: 100%; } }
 
-@media screen and (max-width: 767px) {
-  .align-center {
-    width: 100%; } }
+.align-center {
+  min-width: 25%; }
+  @media screen and (max-width: 767px) {
+    .align-center {
+      width: 100%; } }
 
 .uppercase {
   text-transform: uppercase !important; }
@@ -326,8 +328,8 @@ button {
   animation: fadeIn 1s 1 forwards; }
 
 .align-right {
-  width: 50%;
-  margin: 30px 0 0 30px; }
+  min-width: 25%;
+  margin: 10px 0 0 30px; }
   .align-right img {
     width: 100%; }
   @media screen and (max-width: 767px) {
@@ -335,17 +337,19 @@ button {
       width: 100%; } }
 
 .align-left {
-  width: 50%;
-  margin: 30px 30px 0 0; }
+  min-width: 25%;
+  margin: 10px 30px 0 0; }
   .align-left img {
     width: 100%; }
   @media screen and (max-width: 767px) {
     .align-left {
       width: 100%; } }
 
-@media screen and (max-width: 767px) {
-  .align-center {
-    width: 100%; } }
+.align-center {
+  min-width: 25%; }
+  @media screen and (max-width: 767px) {
+    .align-center {
+      width: 100%; } }
 
 .uppercase {
   text-transform: uppercase !important; }
@@ -748,7 +752,7 @@ body.has-active-menu {
       fill: #919396; }
 
 .mobile-menu-top .facebook svg, .mobile-menu-top .twitter svg, .mobile-menu-top .instagram svg, .mobile-menu-top .pinterest svg {
-  top: -3px; }
+  top: 0px; }
 
 .pinterest svg {
   height: 19px; }
@@ -2238,6 +2242,9 @@ sup {
   @media (max-width: 767px) {
     .hero-section .jumbotron {
       height: 400px; } }
+  @media (min-width: 1200px) {
+    .hero-section .jumbotron #mobile-background {
+      display: none; } }
   .hero-section .jumbotron #homepage-slider {
     height: 650px; }
   .hero-section .jumbotron .slick-dots {
@@ -2293,15 +2300,11 @@ sup {
     @media (max-width: 991px) {
       .hero-section .jumbotron #video-background {
         display: none; } }
-  .hero-section .jumbotron #img-background-homepage {
-    position: absolute;
-    height: auto;
-    width: auto;
-    left: 50%;
-    top: 50%;
-    -webkit-transform: translate3d(-50%, -50%, 0);
-    transform: translate3d(-50%, -50%, 0);
+  .hero-section .jumbotron #mobile-background {
     z-index: -1; }
+    @media (min-width: 1200px) {
+      .hero-section .jumbotron #mobile-background {
+        display: none; } }
   .hero-section .jumbotron h1 {
     margin-bottom: 60px;
     font-size: 85px;
