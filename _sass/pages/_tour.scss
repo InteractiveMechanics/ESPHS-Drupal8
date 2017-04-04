@@ -1,5 +1,10 @@
 .tour-page {
 	position: relative;
+	
+	svg {
+	    height: 20px;
+		width: 20px;
+	}
 
 	.padded-box {
 		box-sizing: content-box;

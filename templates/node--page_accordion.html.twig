@@ -136,6 +136,10 @@
 		        	var a_rel = $(this).attr('rel');
 		        	var a_title = $(this).attr('title');
 		        	
+		        	if(!a_rel) {
+			        	a_rel = "";
+		        	}
+		        	
 		        	if( a_file.indexOf('mp3') > -1) {
 			        	$(this).replaceWith( createAudioHTML(a_file, a_rel, a_title) );				        	
 		        	}

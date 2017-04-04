@@ -1273,16 +1273,16 @@ label {
     color: #919396;
     text-transform: uppercase;
     font-family: "Roboto", Georgia, sans-serif; }
-  .audio-section #audio-container {
+  .audio-section .audio-container {
     width: 85px;
     height: 85px;
     position: relative;
     float: left; }
     @media (max-width: 480px) {
-      .audio-section #audio-container {
+      .audio-section .audio-container {
         float: none;
         margin: 0px auto; } }
-    .audio-section #audio-container .play-icon {
+    .audio-section .audio-container .play-icon {
       position: absolute;
       left: 28px;
       font-size: 35px;
@@ -2981,6 +2981,9 @@ sup {
 
 .tour-page {
   position: relative; }
+  .tour-page svg {
+    height: 20px;
+    width: 20px; }
   .tour-page .padded-box {
     box-sizing: content-box;
     padding: 60px 45px;
