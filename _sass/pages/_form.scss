@@ -1,4 +1,9 @@
-
+.form-required {
+	&:after {
+		content: " *";
+		color: red;
+	}
+}
 .form-page {
 
 	.padded-box {

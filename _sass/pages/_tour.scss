@@ -1,9 +1,22 @@
 .tour-page {
 	position: relative;
 	
+	
+	
 	svg {
-	    height: 20px;
-		width: 20px;
+		@include screen-sm {
+	    	height: 20px;
+			width: 20px;
+			margin-top: -10px;
+			margin-right: -10px;
+		}
+		
+		@include screen-xs {
+	    	height: 20px;
+			width: 20px;
+			margin-top: -20px;
+			margin-right: -20px;
+		}
 	}
 
 	.padded-box {
@@ -81,6 +94,16 @@
 
 .marker {
 	// NEED MARKER SVG
+	
+	@include screen-sm {
+			margin-top: -10px;
+			margin-right: -10px;
+		}
+		
+		@include screen-xs {
+			margin-top: -10px;
+			margin-right: -20px;
+		}
 	svg {
 		fill: #ffffff;
 	}

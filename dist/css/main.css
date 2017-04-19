@@ -968,6 +968,48 @@ body {
   background-repeat: no-repeat;
   background-image: linear-gradient(to bottom, transparent 0%, transparent 20%, rgba(0, 0, 0, 0.65) 100%), url(../../assets/hero-images/hero-image-01@2x.jpg);
   margin-bottom: 5px; }
+.subpage-hero-section .event-hero {
+  background-size: cover;
+  background-position: top right;
+  background-repeat: no-repeat;
+  background-image: linear-gradient(to bottom, transparent 0%, transparent 20%, rgba(0, 0, 0, 0.65) 100%), url(../../assets/Events.jpg);
+  margin-bottom: 5px; }
+.subpage-hero-section .exhibits-hero {
+  background-size: cover;
+  background-position: top right;
+  background-repeat: no-repeat;
+  background-image: linear-gradient(to bottom, transparent 0%, transparent 20%, rgba(0, 0, 0, 0.65) 100%), url(../../assets/Exhibits.jpg);
+  margin-bottom: 5px; }
+.subpage-hero-section .jobs-hero {
+  background-size: cover;
+  background-position: top right;
+  background-repeat: no-repeat;
+  background-image: linear-gradient(to bottom, transparent 0%, transparent 20%, rgba(0, 0, 0, 0.65) 100%), url(../../assets/Jobs.jpg);
+  margin-bottom: 5px; }
+.subpage-hero-section .on-view-hero {
+  background-size: cover;
+  background-position: top right;
+  background-repeat: no-repeat;
+  background-image: linear-gradient(to bottom, transparent 0%, transparent 20%, rgba(0, 0, 0, 0.65) 100%), url(../../assets/On-View-Installations.jpg);
+  margin-bottom: 5px; }
+.subpage-hero-section .past-hero {
+  background-size: cover;
+  background-position: top right;
+  background-repeat: no-repeat;
+  background-image: linear-gradient(to bottom, transparent 0%, transparent 20%, rgba(0, 0, 0, 0.65) 100%), url(../../assets/Past-Installations.jpg);
+  margin-bottom: 5px; }
+.subpage-hero-section .online-tour-hero {
+  background-size: cover;
+  background-position: top right;
+  background-repeat: no-repeat;
+  background-image: linear-gradient(to bottom, transparent 0%, transparent 20%, rgba(0, 0, 0, 0.65) 100%), url(../../assets/Online-Tour.jpg);
+  margin-bottom: 5px; }
+.subpage-hero-section .event-hero {
+  background-size: cover;
+  background-position: top right;
+  background-repeat: no-repeat;
+  background-image: linear-gradient(to bottom, transparent 0%, transparent 20%, rgba(0, 0, 0, 0.65) 100%), url(../../assets/Events.jpg);
+  margin-bottom: 5px; }
 .subpage-hero-section .schedule-hero {
   background-size: cover;
   background-position: top right;
@@ -2759,6 +2801,10 @@ sup {
   top: 10px;
   height: 50px; }
 
+.form-required:after {
+  content: " *";
+  color: red; }
+
 .form-page .padded-box {
   overflow: auto; }
 .form-page .radio {
@@ -2981,9 +3027,18 @@ sup {
 
 .tour-page {
   position: relative; }
-  .tour-page svg {
-    height: 20px;
-    width: 20px; }
+  @media (min-width: 768px) and (max-width: 991px) {
+    .tour-page svg {
+      height: 20px;
+      width: 20px;
+      margin-top: -10px;
+      margin-right: -10px; } }
+  @media (max-width: 767px) {
+    .tour-page svg {
+      height: 20px;
+      width: 20px;
+      margin-top: -20px;
+      margin-right: -20px; } }
   .tour-page .padded-box {
     box-sizing: content-box;
     padding: 60px 45px;
@@ -3047,6 +3102,14 @@ sup {
   border: none;
   transition: all 0.25s linear;
   position: absolute; }
+  @media (min-width: 768px) and (max-width: 991px) {
+    .marker {
+      margin-top: -10px;
+      margin-right: -10px; } }
+  @media (max-width: 767px) {
+    .marker {
+      margin-top: -10px;
+      margin-right: -20px; } }
   .marker svg {
     fill: #ffffff; }
   .marker:hover svg {
