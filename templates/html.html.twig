@@ -39,7 +39,7 @@
     	{% set hmtlTitle = head_title|safe_join(' | ') %}
     {% endif %}
     
-    <title>{{hmtlTitle|raw}}</title> 
+    <title>{{hmtlTitle}}</title> 
     
     {{meta_tags|raw}}
 	
@@ -376,7 +376,7 @@
 			var offset = startchange.offset();
 			if (startchange.length){
 				$(document).scroll(function() { 
-					scroll_start = $(this).scrollTop();
+					scroll_start = 100;
 					if(scroll_start > offset.top) {
 						$("header.navbar").addClass('navbar-fixed-top');
 						
