@@ -24,4 +24,18 @@ function historic_form_system_theme_settings_alter (&$form, \Drupal\Core\Form\Fo
         '#default_value' => theme_get_setting('press_password'),
         '#description'   => t("Here's the code that contains the password for the press images and videos"),
     );
+    
+    $form['tracking_pixel'] = array(
+        '#type'          => 'textarea',
+        '#title'         => t('Tracking Pixel'),
+        '#default_value' => theme_get_setting('tracking_pixel'),
+        '#description'   => t("Here's the code that contains the tracking pixel for Halloween."),
+    );
+    
+    $form['ticket_purchase_text'] = array(
+        '#type'          => 'textarea',
+        '#title'         => t('Purchase Ticket Text'),
+        '#default_value' => theme_get_setting('ticket_purchase_text'),
+        '#description'   => t("Here's the code that contains the tracking pixel for Halloween."),
+    );
 }
