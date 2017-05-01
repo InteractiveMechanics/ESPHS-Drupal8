@@ -1,0 +1,166 @@
+
+{% if node.field_callout.entity.field_link.uri %}
+	<div id="callout">
+        <h3>{{node.field_callout.entity.title.value|raw}}</h3>
+        <p>{{node.field_callout.entity.body.value|raw}}</p>
+        {% if node.field_callout.entity.field_link.uri starts with 'entity' %}
+			{% set urlLink = node.field_callout.entity.field_link.uri|split('/')|last %}
+			<a href="{{ path('entity.node.canonical', {'node': urlLink}) }}">
+				{{node.field_callout.entity.field_link.title}}
+			</a> 
+		{% endif %}
+            <svg version="1.1"
+            xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:a="http://ns.adobe.com/AdobeSVGViewerExtensions/3.0/"
+            x="0px" y="0px" width="17.5px" height="10.2px" viewBox="0 0 17.5 10.2" enable-background="new 0 0 17.5 10.2"
+            xml:space="preserve">
+                <defs>
+                </defs>
+                <g>
+                    <g>
+                        <rect y="4.6" fill="#D62027" width="16.1" height="1"/>
+                    </g>
+                    <g>
+                        <g>
+                            <polygon fill="#D62027" points="12,10.2 11.1,9.3 15.7,5.1 11.1,0.9 12,0 17.5,5.1            "/>
+                        </g>
+                    </g>
+                </g>
+            </svg>
+    </div>
+{% endif %}
+
+<div class="subpage-hero-section">
+            <div class="container-fluid">
+                <div class="row">
+
+                    <div class="col-md-12">
+                        <div class="subpage-hero-details generic-hero" style="background-image: linear-gradient(to bottom, rgba(0,0,0,0) 49%,rgba(0,0,0,0.01) 50%,rgba(0,0,0,0.35) 100%), url({{file_url(node.field_lead_image.entity.uri.value)}});">
+                            <section>
+                                <h1 class="subpage-title">{{node.title.value}}</h1>
+                            </section>
+                        </div>
+
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+
+        <div class="main-content-subpages static-page">
+
+            <div class="container-fluid">
+
+                <div class="padded-box">
+
+                    <div class="row">
+                        <div class="col-md-8 col-sm-12 col-xs-12 body-area node-body-area">
+                        	{{node.body.value|raw}}
+                        </div>
+                    </div>
+                    
+
+                </div>
+
+            </div>
+
+
+        </div>
+        
+        
+        {% include directory ~ '/inc/figure-image-js.html.twig' %}
+        
+        <script type="text/javascript">
+        	
+        	$(document).ready(function(){
+	        	setTimeout(function(){
+		        	setAudioEvents();
+	        	}, 2000);
+	        	
+	        	$('[data-entity-type]').each(function(){
+		        	var a_file = $(this).attr('href');
+		        	var a_rel = $(this).attr('rel');
+		        	var a_title = $(this).attr('title');
+		        	
+		        	if(!a_rel) {
+			        	a_rel = "";
+		        	}
+		        	
+		        	if( a_file.indexOf('mp3') > -1) {
+			        	$(this).replaceWith( createAudioHTML(a_file, a_rel, a_title) );				        	
+		        	}
+		        	
+				});
+        	});
+        	        	
+        	function createAudioHTML(audio_file, a_rel, a_title) {
+				
+				return '<div class="audio-section">' +
+				    '<div class="audio-container">' +
+				        '<a class="play-icon" href="javascript: void(0);">' +
+				        	'<i style="color:#D62027;" class="glyphicon glyphicon-play"></i>' +
+				        '</a>' +
+				
+				        '<audio id="audio">' +
+				            '<source src="' + audio_file + '" type="audio/mpeg">' +
+				        '</audio>' +
+				    '<svg viewBox="0 0 100 100" style="display: block; width: 100%;"><path d="M 50,50 m 0,-46.5 a 46.5,46.5 0 1 1 0,93 a 46.5,46.5 0 1 1 0,-93" stroke="#eee" stroke-width="7" fill-opacity="0"></path><path d="M 50,50 m 0,-46.5 a 46.5,46.5 0 1 1 0,93 a 46.5,46.5 0 1 1 0,-93" stroke="#FF0000" stroke-width="7" fill-opacity="0" style="stroke-dasharray: 292.273, 292.273; stroke-dashoffset: 292.273;"></path></svg></div>' +
+				
+				    '<div id="audio-info">' +
+				        '<h2>' + a_title + '</h2>' +
+				        '<h5>' + a_rel + '</h5>' +
+				    '</div>' +
+				
+				    '<br style="clear:left;">' +
+				'</div>';
+			
+			}
+        	
+        </script>
+        
+        <script type="text/javascript">
+			
+			var audio;
+			
+			function setAudioEvents() {
+	        
+	        	audio = document.getElementById('audio');
+	        	
+		        /*var audioProgressBar = new ProgressBar.Circle('#audio-container', {
+		          strokeWidth: 7,
+		          color: '#FF0000',
+		          trailColor: '#eee',
+		          trailWidth: 7
+		        });*/
+		
+		        $(document).ready(function(){
+		            audio.addEventListener('timeupdate', function() {
+		                var percent = Math.floor((100 / audio.duration) * audio.currentTime);
+		                /*audioProgressBar.animate(percent/100, function() {
+		
+		                });*/
+		            }, false);
+		
+		            $('.play-icon').click(function(){
+			            
+			            console.log(  );
+		                var isPlaying = $(this).hasClass('isPlaying');
+						
+		                if(!isPlaying) {
+			                $(this).html('<i style="color:#D62027;" class="glyphicon glyphicon-pause"></i>');
+		
+		                   // audio.play();
+		                   $(this).addClass('isPlaying');
+		                   $(this).next().get(0).play();
+		                } else {
+		                    $(this).html('<i style="color:#D62027;" class="glyphicon glyphicon-play"></i>');
+		
+		                    //audio.pause();
+		                    $(this).removeClass('isPlaying');
+		                    $(this).next().get(0).pause();
+		                }
+		            });
+		        });	
+			}
+
+    </script>
