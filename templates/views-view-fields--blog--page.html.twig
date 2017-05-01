@@ -1,4 +1,4 @@
-<li>
+<li style="display:none;">
     <div class="row">
         <div class="col-md-3">
             <div class="list-item-image">
@@ -13,17 +13,7 @@
          <div class="col-md-9">
             <div class="list-item-detail">
             	<h6 class="sub-headline">
-                    {{row._entity.field_event_date.value|date("F j, Y, g:i a", "Etc/GMT+8")}}
-                    {% set start_date = row._entity.field_event_date.value|date("F j, Y", "Etc/GMT+8") %}
-
-                    {% if row._entity.field_event_end_date.value %}
-                        &ndash; 
-                        {% if start_date == row._entity.field_event_end_date.value|date("F j, Y", "Etc/GMT+8") %}
-                            {{row._entity.field_event_end_date.value|date("g:i a", "Etc/GMT+8")}}
-                        {% else %}
-                            {{row._entity.field_event_end_date.value|date("F j, Y, g:i a", "Etc/GMT+8")}}
-                        {% endif %}
-                    {% endif %}
+                    {{row._entity.created.value|date("F j, Y", "Etc/GMT+8")}}
                 </h6>
                 <h2><a href="{{ path('entity.node.canonical', {'node': row._entity.nid.value}) }}">{{row._entity.title.value}}</a></h2>
                 
@@ -36,4 +26,3 @@
     <br />
     <hr>
 </li>
-
