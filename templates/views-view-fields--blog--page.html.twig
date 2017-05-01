@@ -17,9 +17,7 @@
                 </h6>
                 <h2><a href="{{ path('entity.node.canonical', {'node': row._entity.nid.value}) }}">{{row._entity.title.value}}</a></h2>
                 
-                
-                {% set text = row._entity.body.value|striptags %}
-				<p>{{ text | raw }}</p>
+                {{fields.body.content}}
             </div>
         </div>
     </div>
