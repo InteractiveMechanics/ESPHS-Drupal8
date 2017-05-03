@@ -112,7 +112,9 @@ $(function(){
 
     $('.items-to-slide').slick({
             dots: true,
-            arrows: false
+            arrows: false,
+            autoplay: true,
+            autoplaySpeed: 6000
     });
 
 
