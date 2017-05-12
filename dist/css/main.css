@@ -597,7 +597,10 @@ body.has-active-menu {
     color: #231f20;
     font-weight: 200;
     margin-bottom: 20px;
-    font-size: 20px; }
+    font-size: 20px;
+    transition: 0.5s all; }
+    .mobile-menu-top h2:hover, .mobile-menu-top h2:focus, .mobile-menu-top h2:active {
+      color: #D62027; }
   .mobile-menu-top address {
     color: white;
     font-size: 13px;
@@ -651,9 +654,11 @@ body.has-active-menu {
   text-transform: uppercase;
   color: #95959c !important;
   display: block;
-  line-height: 2.1; }
-  .mobile-label-links li a:hover {
-    text-decoration: none; }
+  line-height: 2.4;
+  transition: 0.5s all; }
+  .mobile-label-links li a:hover, .mobile-label-links li a:focus, .mobile-label-links li a:active {
+    text-decoration: none;
+    color: #D62027 !important; }
 
 .mobile-search {
   float: left;
@@ -1510,7 +1515,7 @@ label {
     color: #D62027 !important; }
 
 .navbar-logo img {
-  height: 90px;
+  height: 80px;
   transition: opacity 0.5s ease-in-out; }
   .navbar-logo img:hover {
     opacity: 0.7; }
