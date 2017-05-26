@@ -17,10 +17,13 @@
 		$variables['press_categories'] = $terms;
 		
 		$variables['press_contact_1'] = theme_get_setting('press_contact_1');
-		$variables['press_password'] = theme_get_setting('press_password');
 		$variables['press_contact_2'] = theme_get_setting('press_contact_2');
+		$variables['press_password'] = theme_get_setting('press_password');
+
 		$variables['tracking_pixel'] = theme_get_setting('tracking_pixel');
 		$variables['ticket_purchase_text'] = theme_get_setting('ticket_purchase_text');
+        $variables['hours_of_operation'] = theme_get_setting('hours_of_operation');
+        $variables['closed_today'] = theme_get_setting('closed_today');
 		
 		
 		$node = \Drupal::routeMatch()->getParameter('node');
@@ -70,10 +73,13 @@
 		
 		
 		$variables['press_contact_1'] = theme_get_setting('press_contact_1');
-		$variables['press_password'] = theme_get_setting('press_password');
 		$variables['press_contact_2'] = theme_get_setting('press_contact_2');
+		$variables['press_password'] = theme_get_setting('press_password');
+
 		$variables['tracking_pixel'] = theme_get_setting('tracking_pixel');
 		$variables['ticket_purchase_text'] = theme_get_setting('ticket_purchase_text');
+        $variables['hours_of_operation'] = theme_get_setting('hours_of_operation');
+        $variables['closed_today'] = theme_get_setting('closed_today');
 		
 		$node = \Drupal::routeMatch()->getParameter('node');
 		

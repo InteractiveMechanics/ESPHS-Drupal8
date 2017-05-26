@@ -56,6 +56,11 @@ body {
         font-weight: 200;
         margin-bottom: 20px;
         font-size: 20px;
+        transition: 0.5s all;
+
+        &:hover, &:focus, &:active {
+            color: $scarlet;
+        }
     }
     
     address {
@@ -148,10 +153,12 @@ body {
             text-transform: uppercase;
             color:#95959c !important;
             display: block;
-            line-height: 2.1;
+            line-height: 2.4;
+            transition: 0.5s all;
 
-            &:hover {
+            &:hover, &:focus, &:active {
                 text-decoration: none;
+                color: $scarlet !important;
             }
         }
     }

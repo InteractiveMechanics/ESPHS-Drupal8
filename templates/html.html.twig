@@ -66,6 +66,7 @@
     <script src="https://use.typekit.net/vcn8cop.js"></script>
 	<script>try{Typekit.load({ async: true });}catch(e){}</script>
 	<script src="{{ path('<front>') }}halloween/themes/historic/js/classie.js"></script>
+	<script src="{{ path('<front>') }}halloween/themes/historic/js/progressbar.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.12.1/js/bootstrap-select.min.js"></script>
 	
     <css-placeholder token="{{ placeholder_token|raw }}">
@@ -288,9 +289,9 @@
 	        	(month == 1 && day == 1)
 	         ) { 
 		        
-		        $('.hours-wrapper').text('Closed Today');
-		        $('.hours-section ul li:eq(1)').text('Closed Today');
-		        $('.hours-section ul li:eq(0)').html('&nbsp;');
+		        $('.hours-wrapper').html('Eastern State is<br/>Closed Today');
+		        $('.hours-section ul li:eq(1)').text('Eastern State is');
+		        $('.hours-section ul li:eq(0)').text('Closed Today');
 		        
 	        }
 	        
@@ -379,7 +380,7 @@
 			var offset = startchange.offset();
 			if (startchange.length){
 				$(document).scroll(function() { 
-					scroll_start = 100;
+					scroll_start = $(this).scrollTop();
 					if(scroll_start > offset.top) {
 						$("header.navbar").addClass('navbar-fixed-top');
 						

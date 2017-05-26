@@ -1,0 +1,113 @@
+<script type="text/javascript">
+        var index = 1;
+		var audioProgressBarArray = [];
+    	$(document).ready(function(){
+        	setTimeout(function(){
+	        	setAudioEvents();
+        	}, 2000);
+        	
+        	
+        	
+        	$('[data-entity-type]').each(function(){
+	        	var a_file = $(this).attr('href');
+	        	var a_rel = $(this).attr('rel');
+	        	var a_title = $(this).attr('title');
+	        	
+	        	if(!a_rel) {
+		        	a_rel = "";
+	        	}
+	        	
+	        	if( a_file.indexOf('mp3') > -1) {
+		        	$(this).replaceWith( createAudioHTML(a_file, a_rel, a_title, index) );				        	
+	        	}
+	        	
+	        	audioProgressBarArray['audio_container_' + index] = new ProgressBar.Circle('#audio_container_' + index, {
+			        strokeWidth: 7,
+			        color: '#D62027',
+			        trailColor: '#eee',
+			        trailWidth: 7
+			    });
+	        	
+	        	index += 1;
+	        	
+	        	
+			});
+    	});
+    	        	
+    	function createAudioHTML(audio_file, a_rel, a_title, index) {
+			
+			return '<div class="audio-section">' +
+			    '<div class="audio-container audio_container_' + index + '" id="audio_container_' + index + '">' +
+			        '<a class="play-icon" href="javascript: void(0);">' +
+			        	'<i style="color:#D62027;" class="glyphicon glyphicon-play"></i>' +
+			        '</a>' +
+			
+			        '<audio id="audio" class="audio_container_' + index + '">' +
+			            '<source src="' + audio_file + '" type="audio/mpeg">' +
+			        '</audio>' +
+			    '</div>' +
+			
+			    '<div id="audio-info">' +
+			        '<h2>' + a_title + '</h2>' +
+			        '<h5>' + a_rel + '</h5>' +
+			    '</div>' +
+			
+			    '<br style="clear:left;">' +
+			'</div>';
+		
+		}
+    	
+    </script>
+    
+    <script type="text/javascript">
+			
+			var audio;
+			var currentAudioClass = '';
+			 
+			
+			function setAudioEvents() {
+	        
+	        	audio = document.getElementById('audio');
+	        	
+		        $(document).ready(function(){
+		            audio.addEventListener('timeupdate', function() {
+		                var percent = Math.floor((100 / audio.duration) * audio.currentTime);
+		                /*audioProgressBar.animate(percent/100, function() {
+		
+		                });*/
+		            }, false);
+		
+		            $('.play-icon').click(function(){
+			            
+			            console.log(  );
+		                var isPlaying = $(this).hasClass('isPlaying');
+						
+		                if(!isPlaying) {
+			                $(this).html('<i style="color:#D62027;" class="glyphicon glyphicon-pause"></i>');
+		
+		                   // audio.play();
+		                   $(this).addClass('isPlaying');
+		                   $(this).next().get(0).play();
+		                   
+		                   
+		                   var currentAudio = $(this).next().get(0);
+		                   
+		                   currentAudio.addEventListener('timeupdate', function(e) {
+			                   	var _audio = e.target;
+				                var percent = Math.floor((100 / _audio.duration) * _audio.currentTime);
+				                
+				                
+				                audioProgressBarArray[_audio.classList[0]].animate(percent/100, function() {});
+				            }, false);
+		                } else {
+		                    $(this).html('<i style="color:#D62027;" class="glyphicon glyphicon-play"></i>');
+		
+		                    //audio.pause();
+		                    $(this).removeClass('isPlaying');
+		                    $(this).next().get(0).pause();
+		                }
+		            });
+		        });	
+			}
+
+    </script>
