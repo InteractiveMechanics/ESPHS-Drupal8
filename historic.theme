@@ -24,12 +24,20 @@
 		$variables['ticket_purchase_text'] = theme_get_setting('ticket_purchase_text');
         $variables['hours_of_operation'] = theme_get_setting('hours_of_operation');
         $variables['closed_today'] = theme_get_setting('closed_today');
+        
+        $variables['show_prisons_today_award'] = theme_get_setting('show_prisons_today_award');
 		
 		
 		$node = \Drupal::routeMatch()->getParameter('node');
+        $view = \Drupal::request()->attributes->get('view_id');
 		
-		
+        if($view == "events") {
+            $exposed_event_filter_block = \Drupal\block\Entity\Block::load('exposedformeventspage_1');
+			$variables['exposed_event_filter_block'] = \Drupal::entityTypeManager()->getViewBuilder('block')->view($exposed_event_filter_block);
+		}
+
 		if($node) {
+            $variables['nid'] = $node->nid[0]->value;
 			$url = "https://www.easternstate.org" . $_SERVER['REQUEST_URI'];
 		
 			$title = "Eastern State Penitentiary";
