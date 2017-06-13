@@ -34,7 +34,7 @@
     {% set hmtlTitle = node_type %}
     
     {% if hmtlTitle starts with "home_" %}
-    	{% set hmtlTitle = head_title['title'] %}
+    	{% set hmtlTitle = head_title['name'] %}
     {% else %}
     	{% set hmtlTitle = head_title|safe_join(' | ') %}
     {% endif %}
@@ -111,6 +111,9 @@
     {{ page_top }}
     {{ page }}
     {{ page_bottom }}
+    <div id="award-container" {% if show_prisons_today_award and nid == '78' %}style="display:block;"{% endif %}>
+        <img src="{{ path('<front>') }}themes/historic/assets/aam-overall.png" alt="2017 American Aliance of Museums Excellence in Exhibitions Overall Winner" />
+    </div>
     <js-bottom-placeholder token="{{ placeholder_token|raw }}">
     <div id="viewer"><div id="viewer-inner"></div></div>   
     

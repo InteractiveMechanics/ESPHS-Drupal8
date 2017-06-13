@@ -58,4 +58,15 @@ function historic_form_system_theme_settings_alter (&$form, \Drupal\Core\Form\Fo
       '#default_value'   => theme_get_setting('closed_today'),
       '#description'     => t("Check this box to indicate that Eastern State is closed today. Default: unchecked"),
     );
+
+    $form['awards_display'] = array(
+      '#type'            => 'fieldset',
+      '#title'           => t('Award Display Options'),
+    );
+    $form['awards_display']['show_prisons_today_award'] = array(
+      '#type'            => 'checkbox',
+      '#title'           => t('Display the 2017 AAM Award Ribbon for Prisons Today?'),
+      '#default_value'   => theme_get_setting('show_prisons_today_award'),
+      '#description'     => t("Check this box to display the 2017 AAM Award Ribbon for Prisons Today. Default: unchecked"),
+    );
 }

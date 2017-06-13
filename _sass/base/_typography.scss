@@ -53,12 +53,15 @@ h6 {
 	color: $gray;
 }
 
-p, ul, ol {
+p, 
+ul:not(.toolbar-menu), 
+ol:not(.toolbar-menu) {
 	font-family: $roboto;
 	font-weight: 300;
 }
 
-ul, ol {
+ul:not(.toolbar-menu), 
+ol:not(.toolbar-menu) {
 	font-size: 18px;
 	line-height: 30px;
 }

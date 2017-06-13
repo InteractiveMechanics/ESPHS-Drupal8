@@ -313,3 +313,21 @@
 
 	
 }
+
+#views-exposed-form-events-page-1 {
+    float: right;
+
+    .js-form-type-select {
+        width: 220px;
+        display: inline-block;
+    }
+    .form-actions {
+        display: inline-block;
+
+        > input[type="submit"] {
+            padding: 13px 20px;
+            margin-top: 12px;
+            margin-left: 10px;
+        }
+    }
+}

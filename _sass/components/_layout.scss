@@ -32,6 +32,19 @@ body {
 	}
 }
 
+#award-container {
+    position: absolute;
+    top: 200px;
+    right: 0;
+    width: 280px;
+    display: none;
+
+    img {
+        width: 100%;
+        height: auto;
+    }
+}
+
 .relative-position {
 	position: relative;
 	
@@ -388,6 +401,8 @@ body {
 				padding-top:14px;
 				padding-bottom:14px;
 				color: $red;
+                left: 20px;
+                position: relative;
 
 				&:hover {
 					text-decoration: none !important !important;
@@ -409,9 +424,10 @@ body {
 				    color: $red;         /* adjust as needed */
 				    padding-right:10px;
 			        font-size: 15px;
-			        top: 4px;
-			        position: relative;
-				}
+			        top: 22px;
+                    position: absolute;
+                    left: -25px;
+	            }
 				
 				&.collapsed:after {
 				    /* symbol for "collapsed" panels */
