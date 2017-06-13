@@ -3004,7 +3004,8 @@ sup {
     color: #aeb1bb;
     font-weight: bold;
     letter-spacing: 2px; }
-.contextual-region .form-submit, .webform-details-toggle .form-submit {
+
+.form-submit {
   display: inline-block;
   padding: 6px 12px;
   margin-bottom: 0;
@@ -3033,15 +3034,12 @@ sup {
   transition: all 0.5s ease-in-out;
   font-size: 14px !important;
   margin: 25px 0 15px; }
-.contextual-region .form-submit:hover,
-.contextual-region .form-submit:active,
-.contextual-region .form-submit:focus
+
+.form-submit:hover,
+.form-submit:active,
+.form-submit:focus
 .form-submit.active,
-.contextual-region .open .dropdown-toggle.btn-white, .webform-details-toggle .form-submit:hover,
-.webform-details-toggle .form-submit:active,
-.webform-details-toggle .form-submit:focus
-.form-submit.active,
-.webform-details-toggle .open .dropdown-toggle.btn-white {
+.open .dropdown-toggle.btn-white {
   color: #D62027;
   background-color: #FFF;
   border-color: #FFF; }

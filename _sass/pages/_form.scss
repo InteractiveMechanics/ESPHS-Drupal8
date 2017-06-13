@@ -266,9 +266,10 @@
 		    font-weight: bold;
 		    letter-spacing: 2px;	
 		}
-	}
-	
-	.form-submit {
+	}	
+}
+
+.form-submit {
 		display: inline-block;
 	    padding: 6px 12px;
 	    margin-bottom: 0;
@@ -298,20 +299,15 @@
 		transition: $transition;
 		font-size:14px !important;
 		margin:25px 0 15px;
-	}
-	
- 
-	.form-submit:hover, 
-	.form-submit:active,
-	.form-submit:focus 
-	.form-submit.active, 
-	.open .dropdown-toggle.btn-white { 
-	  color: $scarlet; 
-	  background-color: #FFF; 
-	  border-color: #FFF; 
-	}
-
-	
+}
+.form-submit:hover, 
+.form-submit:active,
+.form-submit:focus 
+.form-submit.active, 
+.open .dropdown-toggle.btn-white { 
+  color: $scarlet; 
+  background-color: #FFF; 
+  border-color: #FFF; 
 }
 
 #views-exposed-form-events-page-1 {
