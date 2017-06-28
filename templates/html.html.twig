@@ -404,9 +404,10 @@
     		
     		$('.mobile-buy-now').click(function(){
 	    		var path = $(this).data('path');
-	    		var url = window.location.origin + path;
+	    		//var url = window.location.origin + path;
 				
-				window.location.replace(url);
+				window.open(path, '_blank');
+
     		});
     		
         });
