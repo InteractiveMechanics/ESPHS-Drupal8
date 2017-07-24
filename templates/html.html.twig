@@ -39,7 +39,7 @@
     	{% set hmtlTitle = head_title|safe_join(' | ') %}
     {% endif %}
     
-    <title>{{hmtlTitle}}</title> 
+    <title>{{hmtlTitle|raw}}</title> 
     
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     
@@ -89,6 +89,7 @@
     	.views-exposed-form {
 	    	display:none;
     	}
+    	
     </style>
     
 </head>

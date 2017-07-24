@@ -78,6 +78,9 @@
 		
 		//var_dump($output);
 		
+		$form = \Drupal::formBuilder()->getForm('Drupal\photorequest\Form\RequestForm');
+		$variables['formform'] = $form;
+		
 		
 		
 		$variables['press_contact_1'] = theme_get_setting('press_contact_1');
