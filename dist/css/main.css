@@ -2692,7 +2692,9 @@ sup {
   color: #231f20; }
 .press-release-page .press-image {
   position: relative;
-  margin-bottom: 25px; }
+  margin-bottom: 10px;
+  max-height: 225px;
+  overflow: hidden; }
 .press-release-page .overlay {
   position: absolute;
   bottom: 0;
