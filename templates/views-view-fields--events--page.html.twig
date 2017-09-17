@@ -13,15 +13,15 @@
          <div class="col-md-9">
             <div class="list-item-detail">
             	<h6 class="sub-headline">
-                    {{row._entity.field_event_date.value|date("F j, Y, g:i a", "Etc/GMT+8")}}
-                    {% set start_date = row._entity.field_event_date.value|date("F j, Y", "Etc/GMT+8") %}
+                    {{row._entity.field_event_date.date|date("F j, Y, g:i a")}}
+                    {% set start_date = row._entity.field_event_date.date|date("F j, Y") %}
 
-                    {% if row._entity.field_event_end_date.value %}
+                    {% if row._entity.field_event_end_date.date %}
                         &ndash; 
-                        {% if start_date == row._entity.field_event_end_date.value|date("F j, Y", "Etc/GMT+8") %}
-                            {{row._entity.field_event_end_date.value|date("g:i a", "Etc/GMT+8")}}
+                        {% if start_date == row._entity.field_event_end_date.date|date("F j, Y") %}
+                            {{row._entity.field_event_end_date.date|date("g:i a")}}
                         {% else %}
-                            {{row._entity.field_event_end_date.value|date("F j, Y, g:i a", "Etc/GMT+8")}}
+                            {{row._entity.field_event_end_date.date|date("F j, Y, g:i a")}}
                         {% endif %}
                     {% endif %}
                 </h6>

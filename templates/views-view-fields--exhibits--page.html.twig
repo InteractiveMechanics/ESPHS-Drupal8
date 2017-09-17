@@ -16,8 +16,9 @@
                 <h2><a href="{{ path('entity.node.canonical', {'node': row._entity.nid.value}) }}">{{row._entity.title.value}}</a></h2>
                 
                 
-                {% set text = row._entity.body.value|render|striptags %}
-				<p>{{ text|length > 500 ? text|slice(0, 500) ~ '...' : text }}</p>
+                {{row._entity.body.content}}
+                
+                <p><strong><a href="{{ path('entity.node.canonical', {'node': row._entity.nid.value}) }}">Read more</a></strong></p>
             </div>
         </div>
     </div>

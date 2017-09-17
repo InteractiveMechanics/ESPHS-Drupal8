@@ -101,7 +101,7 @@
 		                                <div>
 		                                    <h5>{{node.field_home_page_call_out.0.getFieldCollectionItem().field_home_page_call_.value}}</h5>
 		                                    <p>
-		                                    	{{node.field_home_page_call_out.0.getFieldCollectionItem().field_home_page_call_out_copy.value|raw|striptags}}
+		                                    	{{node.field_home_page_call_out.0.getFieldCollectionItem().field_home_page_call_out_copy.value|striptags}}
 		                                    	
 		                                    	{% if node.field_home_page_call_out.0.getFieldCollectionItem().field_home_page_call_out_link.uri starts with 'entity' %}
 		                                    		{% set urlLink = node.field_home_page_call_out.0.getFieldCollectionItem().field_home_page_call_out_link.uri|split('/')|last %}
@@ -140,7 +140,7 @@
 		                                <div>
 		                                    <h5>{{node.field_home_page_call_out.1.getFieldCollectionItem().field_home_page_call_.value}}</h5>
 		                                    <p>
-		                                    	{{node.field_home_page_call_out.1.getFieldCollectionItem().field_home_page_call_out_copy.value|raw|striptags}}
+		                                    	{{node.field_home_page_call_out.1.getFieldCollectionItem().field_home_page_call_out_copy.value|striptags}}
 		                                    	
 		                                    	
 		                                    	{% if node.field_home_page_call_out.1.getFieldCollectionItem().field_home_page_call_out_link.uri starts with 'entity' %}
@@ -181,7 +181,7 @@
 		                                <div>
 		                                    <h5>{{node.field_home_page_call_out.2.getFieldCollectionItem().field_home_page_call_.value}}</h5>
 		                                    <p>
-		                                    	{{node.field_home_page_call_out.2.getFieldCollectionItem().field_home_page_call_out_copy.value|raw|striptags}}
+		                                    	{{node.field_home_page_call_out.2.getFieldCollectionItem().field_home_page_call_out_copy.value|striptags}}
 		                                    	
 		                                    	{% if node.field_home_page_call_out.2.getFieldCollectionItem().field_home_page_call_out_link.uri starts with 'entity' %}
 		                                    		{% set urlLink = node.field_home_page_call_out.2.getFieldCollectionItem().field_home_page_call_out_link.uri|split('/')|last %}
@@ -221,7 +221,7 @@
 		                                <div>
 		                                    <h5>{{node.field_home_page_call_out.3.getFieldCollectionItem().field_home_page_call_.value}}</h5>
 		                                    <p>
-		                                    	{{node.field_home_page_call_out.3.getFieldCollectionItem().field_home_page_call_out_copy.value|raw|striptags}}
+		                                    	{{node.field_home_page_call_out.3.getFieldCollectionItem().field_home_page_call_out_copy.value|striptags}}
 		                                    	
 		                                    	{% if node.field_home_page_call_out.3.getFieldCollectionItem().field_home_page_call_out_link.uri starts with 'entity' %}
 		                                    		{% set urlLink = node.field_home_page_call_out.3.getFieldCollectionItem().field_home_page_call_out_link.uri|split('/')|last %}
@@ -390,15 +390,15 @@
                         <div class="sub-detail">
                         	
                         	<h6>
-                                {{node.field_feature_event.entity.field_event_date.value|date("F j, Y, g:i a", "Etc/GMT+8")}}
-                                {% set start_date = node.field_feature_event.entity.field_event_date.value|date("F j, Y", "Etc/GMT+8") %}
+                                {{node.field_feature_event.entity.field_event_date.date|date("F j, Y, g:i a")}}
+                                {% set start_date = node.field_feature_event.entity.field_event_date.date|date("F j, Y") %}
             
-                                {% if node.field_feature_event.entity.field_event_end_date.value %}
+                                {% if node.field_feature_event.entity.field_event_end_date.date %}
                                     &ndash; 
-                                    {% if start_date == node.field_feature_event.entity.field_event_end_date.value|date("F j, Y", "Etc/GMT+8") %}
-                                        {{node.field_feature_event.entity.field_event_end_date.value|date("g:i a", "Etc/GMT+8")}}
+                                    {% if start_date == node.field_feature_event.entity.field_event_end_date.date|date("F j, Y") %}
+                                        {{node.field_feature_event.entity.field_event_end_date.date|date("g:i a")}}
                                     {% else %}
-                                        {{node.field_feature_event.entity.field_event_end_date.value|date("F j, Y, g:i a", "Etc/GMT+8")}}
+                                        {{node.field_feature_event.entity.field_event_end_date.date|date("F j, Y, g:i a")}}
                                     {% endif %}
                                 {% endif %}
                             </h6>
