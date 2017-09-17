@@ -57,15 +57,15 @@
                 <div class="row">
                     <div class="col-md-7">
                         <h6 class="sub-headline">
-                            {{node.field_event_date.value|date("F j, Y, g:i a", "Etc/GMT+8")}}
-                            {% set start_date = node.field_event_date.value|date("F j, Y", "Etc/GMT+8") %}
+                            {{node.field_event_date.date|date("F j, Y, g:i a", "America/New_York")}}
+                            {% set start_date = node.field_event_date.date|date("F j, Y", "America/New_York") %}
         
-                            {% if node.field_event_end_date.value %}
+                            {% if node.field_event_end_date.date %}
                                 &ndash; 
-                                {% if start_date == node.field_event_end_date.value|date("F j, Y", "Etc/GMT+8") %}
-                                    {{node.field_event_end_date.value|date("g:i a", "Etc/GMT+8")}}
+                                {% if start_date == node.field_event_end_date.date|date("F j, Y", "America/New_York") %}
+                                    {{node.field_event_end_date.date|date("g:i a", "America/New_York")}}
                                 {% else %}
-                                    {{node.field_event_end_date.value|date("F j, Y, g:i a", "Etc/GMT+8")}}
+                                    {{node.field_event_end_date.date|date("F j, Y, g:i a", "America/New_York")}}
                                 {% endif %}
                             {% endif %}
                         </h6>
