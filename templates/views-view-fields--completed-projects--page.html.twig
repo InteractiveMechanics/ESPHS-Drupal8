@@ -14,10 +14,9 @@
             <div class="list-item-detail">
             	<h6>Status: {{row._entity.field_annual_appeal_status.value}} &nbsp;&nbsp;|&nbsp;&nbsp; Cost: {{row._entity.field_annual_appeal_cost.value}}</h6>
                 <h2><a href="{{ path('entity.node.canonical', {'node': row._entity.nid.value}) }}">{{row._entity.title.value}}</a></h2>
+                {{fields.body.content}}
                 
-                
-                {% set text = row._entity.body.value|render|striptags %}
-				<p>{{ text|length > 500 ? text|slice(0, 500) ~ '...' : text }}</p>
+                <p><strong><a href="{{ path('entity.node.canonical', {'node': row._entity.nid.value}) }}">Read more</a></strong></p>
             </div>
         </div>
     </div>

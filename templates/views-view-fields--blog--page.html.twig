@@ -13,11 +13,12 @@
          <div class="col-md-9">
             <div class="list-item-detail">
             	<h6 class="sub-headline">
-                    {{row._entity.created.value|date("F j, Y", "Etc/GMT+8")}}
+                    {{row._entity.created.date|date("F j, Y")}}
                 </h6>
                 <h2><a href="{{ path('entity.node.canonical', {'node': row._entity.nid.value}) }}">{{row._entity.title.value}}</a></h2>
-                
                 {{fields.body.content}}
+                
+                <p><strong><a href="{{ path('entity.node.canonical', {'node': row._entity.nid.value}) }}">Read more</a></strong></p>
             </div>
         </div>
     </div>
