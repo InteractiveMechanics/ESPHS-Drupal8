@@ -26,6 +26,11 @@
         $variables['closed_today'] = theme_get_setting('closed_today');
         
         $variables['show_prisons_today_award'] = theme_get_setting('show_prisons_today_award');
+
+        $variables['promo_text'] = theme_get_setting('promo_text');
+		$variables['promo_url'] = theme_get_setting('promo_url');
+        $variables['promo_start_date'] = theme_get_setting('promo_start_date');
+        $variables['promo_end_date'] = theme_get_setting('promo_end_date');
 		
 		
 		$node = \Drupal::routeMatch()->getParameter('node');

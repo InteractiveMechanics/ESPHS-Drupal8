@@ -1,0 +1,14 @@
+{% if "now"|date("U") >= promo_start_date|date("U") and "now"|date("U") <= promo_end_date|date("U") %}
+<div id="promo" class="fade hidden">
+    <div class="promo-close" title="Close Popup"></div>
+    
+    <a href="{{ promo_url }}" title="{{ promo_text }}">
+        <div class="promo-text">{{ promo_text }}</div>
+        <div class="promo-logo"></div>
+
+        <img src="{{ path('<front>') }}themes/historic/assets/promo/bkgr-lightOn.png" alt="{{ promo_text }}" title="{{ promo_text }}" class="promo-background" />
+        <img src="{{ path('<front>') }}themes/historic/assets/promo/smoke-right@2x.png" class="promo-smoke-01" />
+        <img src="{{ path('<front>') }}themes/historic/assets/promo/smoke-left@2x.png" class="promo-smoke-02" />
+    </a>
+</div>
+{% endif %}
