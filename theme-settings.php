@@ -59,6 +59,37 @@ function historic_form_system_theme_settings_alter (&$form, \Drupal\Core\Form\Fo
       '#description'     => t("Check this box to indicate that Eastern State is closed today. Default: unchecked"),
     );
 
+
+    $form['promo_display'] = array(
+      '#type'            => 'fieldset',
+      '#title'           => t('TBTW Promo Display Options'),
+    );
+    $form['promo_display']['promo_text'] = array(
+      '#type'            => 'textfield',
+      '#title'           => t('Promo Text'),
+      '#default_value'   => theme_get_setting('promo_text'),
+      '#description'     => t("The text value of the promo for Terror Behind the Walls. Default: A Massive Haunted House in a Real Prison"),
+    );
+    $form['promo_display']['promo_url'] = array(
+      '#type'            => 'textfield',
+      '#title'           => t('Promo URL'),
+      '#default_value'   => theme_get_setting('promo_url'),
+      '#description'     => t("The URL to link to for the promo for Terror Behind the Walls. Default: https://www.easternstate.org/halloween/"),
+    );
+    $form['promo_display']['promo_start_date'] = array(
+      '#type'            => 'date',
+      '#title'           => t('Promo Start Date'),
+      '#default_value'   => theme_get_setting('promo_start_date'),
+      '#description'     => t("The start date to display the promo for Terror Behind the Walls."),
+    );
+    $form['promo_display']['promo_end_date'] = array(
+      '#type'            => 'date',
+      '#title'           => t('Promo End Date'),
+      '#default_value'   => theme_get_setting('promo_end_date'),
+      '#description'     => t("The end date to display the promo for Terror Behind the Walls."),
+    );
+
+
     $form['awards_display'] = array(
       '#type'            => 'fieldset',
       '#title'           => t('Award Display Options'),
