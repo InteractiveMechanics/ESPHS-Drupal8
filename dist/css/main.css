@@ -2251,12 +2251,13 @@ sup {
 #promo {
   position: fixed;
   display: block;
-  top: 0;
+  top: 50%;
   z-index: 1000;
   width: 640px;
-  height: 325px;
+  height: 640px;
   left: 50%;
   margin-left: -320px;
+  margin-top: -320px;
   transition: 0.5s all;
   filter: drop-shadow(0 0 0 transparent); }
   #promo:hover, #promo:focus, #promo:active {
@@ -2267,17 +2268,18 @@ sup {
     position: relative; }
   @media all and (max-width: 640px) {
     #promo {
-      width: 360px;
-      margin-left: -180px;
-      height: 182px; } }
+      width: 320px;
+      height: 320px;
+      margin-left: -160px;
+      margin-top: -160px; } }
   #promo .promo-close {
     background: url("../../assets/promo/btn-close.svg");
     background-size: cover;
     position: absolute;
-    top: 15px;
-    right: -35px;
-    width: 48px;
-    height: 48px;
+    top: -27px;
+    right: -27px;
+    width: 54px;
+    height: 54px;
     transition: 0.5s all;
     opacity: 1;
     z-index: 10;
@@ -2286,7 +2288,10 @@ sup {
       opacity: 0.65; }
     @media all and (max-width: 640px) {
       #promo .promo-close {
-        right: -20px; } }
+        width: 44px;
+        height: 44px;
+        right: 10px;
+        top: 10px; } }
   #promo .promo-text {
     position: absolute;
     top: 40px;
