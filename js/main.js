@@ -57,7 +57,6 @@ $(function(){
 
     var cookie = getCookie('hidePopup');
     if (cookie == null || false){
-        console.log('yes');
         $('#promo').removeClass('hidden');
         setTimeout(function(){ $('#promo').addClass('in'); }, 100);
     }

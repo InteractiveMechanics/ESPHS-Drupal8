@@ -1,10 +1,14 @@
 {% if "now"|date("U") > promo_start_date|date("U") %}
     {% if "now"|date("U") < promo_end_date|date("U") %}
         <div id="promo" class="fade hidden">
-            <div class="promo-close" title="Close Popup"></div>
-            
-            <a href="{{ promo_url }}" title="Terror Behind the Walls, a massive haunted house in a real prison">
-                <img src="{{ path('<front>') }}themes/historic/assets/promo/promo.jpg" alt="Terror Behind the Walls, a massive haunted house in a real prison" title="Terror Behind the Walls, a massive haunted house in a real prison" class="promo-background" />
+            <p>There are <b>2</b> ways to visit <b>EASTERN STATE PENITENTIARY</b> in the fall:</p>
+            <a href="#" class="promo-close promo-esp" title="Eastern State Penitentiary Daytime Prison Tours">
+                <img src="{{ path('<front>') }}themes/historic/assets/promo/esp-intro-new.jpg" alt="Eastern State Penitentiary Daytime Prison Tours" title="Eastern State Penitentiary Daytime Prison Tours" />
+                <span>enter site &rarr;</span>
+            </a>
+            <a href="{{ promo_url }}" class="promo-tbtw" title="Terror Behind the Walls Nighttime Haunted House">
+                <img src="{{ path('<front>') }}themes/historic/assets/promo/tbtw-intro-new.jpg" alt="Terror Behind the Walls, a massive haunted house in a real prison" title="Terror Behind the Walls, a massive haunted house in a real prison" />
+                <span>enter site &rarr;</span>
             </a>
         </div>
     {% endif %}
