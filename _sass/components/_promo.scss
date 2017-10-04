@@ -28,7 +28,7 @@
         @media all and (max-width: 640px) {
             display: block;
             width: 96%;
-            height: 230px;
+            height: 250px;
             margin-bottom: 10px;
             overflow: hidden;
         }
@@ -57,10 +57,6 @@
     .promo-esp {
         border-color: white;
 
-        @media all and (max-width: 640px) {
-            height: 180px;
-        }
-
         span {
             background: white;
             color: black;
@@ -68,10 +64,6 @@
     }
     .promo-tbtw {
         border-color: #a9110c;
-
-        @media all and (max-width: 640px) {
-            height: 300px;
-        }
 
         span {
             background-color: #a9110c;

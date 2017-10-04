@@ -2256,7 +2256,7 @@ sup {
       #promo a {
         display: block;
         width: 96%;
-        height: 230px;
+        height: 250px;
         margin-bottom: 10px;
         overflow: hidden; } }
     #promo a span {
@@ -2275,17 +2275,11 @@ sup {
       opacity: 0.85; }
   #promo .promo-esp {
     border-color: white; }
-    @media all and (max-width: 640px) {
-      #promo .promo-esp {
-        height: 180px; } }
     #promo .promo-esp span {
       background: white;
       color: black; }
   #promo .promo-tbtw {
     border-color: #a9110c; }
-    @media all and (max-width: 640px) {
-      #promo .promo-tbtw {
-        height: 300px; } }
     #promo .promo-tbtw span {
       background-color: #a9110c;
       color: white; }
