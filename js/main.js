@@ -63,7 +63,7 @@ $(function(){
     $(document).on('click tap', '.promo-close', function(e) {
         e.preventDefault();
         $('#promo').addClass('hidden');
-        setCookie('hidePopup', true, 1);
+        setCookie('hidePopup', true, 0.25);
     });
 
 
