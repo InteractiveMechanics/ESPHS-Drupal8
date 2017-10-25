@@ -334,7 +334,12 @@
 
 									{% if node.field_home_page_body.0.getFieldCollectionItem().field_body_link %}
 	                                    <p>
-	                                        <a class="" href="https://www.easternstate.org/research/" role="button">
+	                                    	{% if node.field_home_page_body.0.getFieldCollectionItem().field_body_link.uri starts with 'entity' %}
+	                                    		{% set urlLink = node.field_home_page_body.0.getFieldCollectionItem().field_body_link.uri|split('/')|last %}
+	                                    		<a class="" href="{{ path('entity.node.canonical', {'node': urlLink}) }}" role="button">
+	                                    	{% else %}
+	                                    		<a class="" href="{{node.field_home_page_body.0.getFieldCollectionItem().field_body_link.uri}}" role="button">
+	                                    	{% endif %}
 	                                            {{node.field_home_page_body.0.getFieldCollectionItem().field_body_link.title}}
 	                                        </a>
 	                                        <svg version="1.1"
