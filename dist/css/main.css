@@ -2770,6 +2770,9 @@ sup {
     padding: 20px 30px;
     border-radius: 0px; }
 
+.search-form-page form.search-form {
+  display: none; }
+
 .search-page h3 {
   font-size: 20px;
   color: #231f20; }
