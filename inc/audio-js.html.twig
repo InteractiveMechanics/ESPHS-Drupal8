@@ -12,23 +12,27 @@
 	        	var a_file = $(this).attr('href');
 	        	var a_rel = $(this).attr('rel');
 	        	var a_title = $(this).attr('title');
+
+                var parts = a_file.split('.');
+                if (parts[parts.length - 1].toLowerCase() == 'mp3') {
 	        	
-	        	if(!a_rel) {
-		        	a_rel = "";
-	        	}
+    	        	if(!a_rel) {
+    		        	a_rel = "";
+    	        	}
+    	        	
+    	        	if( a_file.indexOf('mp3') > -1) {
+    		        	$(this).replaceWith( createAudioHTML(a_file, a_rel, a_title, index) );				        	
+    	        	}
+    	        	
+    	        	audioProgressBarArray['audio_container_' + index] = new ProgressBar.Circle('#audio_container_' + index, {
+    			        strokeWidth: 7,
+    			        color: '#D62027',
+    			        trailColor: '#eee',
+    			        trailWidth: 7
+    			    });
 	        	
-	        	if( a_file.indexOf('mp3') > -1) {
-		        	$(this).replaceWith( createAudioHTML(a_file, a_rel, a_title, index) );				        	
-	        	}
-	        	
-	        	audioProgressBarArray['audio_container_' + index] = new ProgressBar.Circle('#audio_container_' + index, {
-			        strokeWidth: 7,
-			        color: '#D62027',
-			        trailColor: '#eee',
-			        trailWidth: 7
-			    });
-	        	
-	        	index += 1;
+                    index += 1;
+                }
 	        	
 	        	
 			});
