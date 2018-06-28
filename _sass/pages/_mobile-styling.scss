@@ -98,6 +98,9 @@
 		    }
 		}
 	}
+    #views-exposed-form-events-page-1 {
+        float: none;
+    }
 }
 
 @media ($screen-xs) {
@@ -288,6 +291,9 @@
 		align-items: center;
 		top: -3px;	
 	}
+    #views-exposed-form-events-page-1 {
+        float: none;
+    }
 }
 
 
@@ -348,6 +354,13 @@
 		left: 10px;
 		top: -3px;	
 	}
+    #views-exposed-form-events-page-1 {
+        float: none;
+
+        .js-form-type-select {
+            width: 200px;
+        }
+    }
 }
 
 // these queries are here because the mixin partial comes after the helpers partial
