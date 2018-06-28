@@ -2392,7 +2392,6 @@ sup {
       font-size: 18px;
       line-height: 1.65; }
       .hero-section .jumbotron .homepage-slider-single p a {
-        margin: auto 7px;
         color: #D62027;
         border-bottom: 1px dotted #D62027;
         transition: all 0.5s ease-in-out; }
@@ -2488,7 +2487,8 @@ sup {
       color: #ffffff;
       margin-top: 15px;
       margin-bottom: 15px;
-      background: linear-gradient(to bottom, transparent 0%, transparent 20%, rgba(0, 0, 0, 0.65) 100%), url(../../assets/homepage-aboutblock@2x.jpg) top right; } }
+      background: linear-gradient(to bottom, transparent 0%, transparent 20%, rgba(0, 0, 0, 0.65) 100%), url(../../assets/homepage-aboutblock@2x.jpg) top right;
+      background-size: cover; } }
   .about-section .jumbotron h2 {
     font-weight: 200;
     font-size: 26px;
@@ -2502,8 +2502,8 @@ sup {
     margin-right: 7px;
     transition: all 0.5s ease-in-out; }
     .about-section .jumbotron a:hover {
-      color: #89070C;
-      border-bottom: 1px dotted #89070C;
+      color: #e75c61;
+      border-bottom: 1px dotted #e75c61;
       text-decoration: none; }
 
 .mainpage-details-section {
@@ -3343,10 +3343,14 @@ sup {
       margin-left: auto !important;
       margin-right: auto !important;
       right: auto;
+      height: auto;
       position: relative;
-      top: 120px; }
+      top: 160px; }
       .hero-section .jumbotron .homepage-slider-single p {
-        font-size: 16px; }
+        font-size: 16px;
+        margin-bottom: 0; }
+      .hero-section .jumbotron .homepage-slider-single .slick-dotted.slick-slider {
+        margin-bottom: 0 !important; }
     .hero-section .jumbotron h1 {
       font-size: 40px;
       line-height: 55px;
