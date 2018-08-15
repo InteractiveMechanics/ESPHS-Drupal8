@@ -1480,8 +1480,7 @@ label {
       padding: 10px 0px; } }
 
 .navigation-links-section {
-  float: right;
-  width: 650px; }
+  float: right; }
 
 .navbar-toggle {
   border: none !important; }
