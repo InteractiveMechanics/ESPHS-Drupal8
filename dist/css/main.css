@@ -2486,8 +2486,9 @@ sup {
       color: #ffffff;
       margin-top: 15px;
       margin-bottom: 15px;
-      background: linear-gradient(to bottom, transparent 0%, transparent 20%, rgba(0, 0, 0, 0.65) 100%), url(../../assets/homepage-aboutblock@2x.jpg) top right;
-      background-size: cover; } }
+      background: linear-gradient(to bottom, transparent 0%, transparent 20%, rgba(0, 0, 0, 0.65) 100%), url(../../assets/homepage-aboutblock@2x.jpg) top center;
+      background-size: cover;
+      background-position-x: 685px; } }
   .about-section .jumbotron h2 {
     font-weight: 200;
     font-size: 26px;
