@@ -113,7 +113,9 @@
     {{ page }}
     {{ page_bottom }}
 
-    {% include directory ~ '/inc/promo.html.twig' %}
+    {% if nid == '11' %}
+        {% include directory ~ '/inc/promo.html.twig' %}
+    {% endif %}
 
     <div id="award-container" {% if show_prisons_today_award and nid == '78' %}style="display:block;"{% endif %}>
         <img src="{{ path('<front>') }}themes/historic/assets/aam-overall.png" alt="2017 American Aliance of Museums Excellence in Exhibitions Overall Winner" />

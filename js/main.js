@@ -65,6 +65,10 @@ $(function(){
         $('#promo').addClass('hidden');
         setCookie('hidePopup', true, 1);
     });
+    $(document).on('click tap', '.promo-tbtw', function(e) {
+        e.preventDefault();
+        setCookie('hidePopup', true, 1);
+    });
 
 
     $('.watch-preview').click(function(){
