@@ -66,7 +66,6 @@ $(function(){
         setCookie('hidePopup', true, 0.25);
     });
     $(document).on('click tap', '.promo-tbtw', function(e) {
-        e.preventDefault();
         setCookie('hidePopup', true, 1);
     });
 
