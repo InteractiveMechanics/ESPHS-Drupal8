@@ -2306,15 +2306,14 @@ sup {
   #appeal a {
     display: inline-block;
     cursor: pointer;
-    position: relative;
     position: relative; }
   #appeal img {
     max-width: 960px;
     box-shadow: 0 0 30px rgba(0, 0, 0, 0.5); }
-    @media all and (max-width: 640px) {
+    @media all and (max-width: 960px) {
       #appeal img {
-        max-width: 640px;
-        box-shadow: 0 0 15px rgba(0, 0, 0, 0.35); } }
+        max-width: 100%;
+        box-shadow: 0; } }
 
 .slick-slide {
   outline: none !important; }
