@@ -71,3 +71,43 @@
         }
     }
 }
+
+#appeal {
+    position: fixed;
+    display: block;
+    top: 0;
+    bottom: 0;
+    z-index: 100000;
+    left: 0;
+    right: 0;
+    padding: 100px;
+    text-align: center;
+
+    @media all and (max-width: 640px) {
+        padding: 40px 20px;
+    }
+
+    .appeal-close-overlay {
+        background: rgba(0,0,0,0.65);
+        position: fixed;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+    }
+
+    a {
+        display: inline-block;
+        cursor: pointer;
+        position: relative;
+    }
+    img {
+        max-width: 960px;
+        box-shadow: 0 0 30px rgba(0,0,0,0.5);
+
+        @media all and (max-width: 640px) {
+            max-width: 640px;
+            box-shadow: 0 0 15px rgba(0,0,0,0.35);
+        }
+    }
+}
