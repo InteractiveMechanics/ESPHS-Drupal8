@@ -50,16 +50,18 @@ body {
 		margin-bottom: 0px;
 		padding-bottom: 0px;
 	}
-    h2 {
+    h2, h2 > a {
 	    cursor: pointer;
-        color: $black;
+        color: $black !important;
         font-weight: 200;
         margin-bottom: 20px;
         font-size: 20px;
         transition: 0.5s all;
+        border-bottom: none !important;
 
         &:hover, &:focus, &:active {
-            color: $scarlet;
+            color: $scarlet !important;
+            border-bottom: none !important;
         }
     }
     
