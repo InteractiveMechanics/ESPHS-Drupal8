@@ -2283,6 +2283,39 @@ sup {
       background-color: #a9110c;
       color: white; }
 
+#appeal {
+  position: fixed;
+  display: block;
+  top: 0;
+  bottom: 0;
+  z-index: 100000;
+  left: 0;
+  right: 0;
+  padding: 50px 0;
+  text-align: center; }
+  @media all and (max-width: 720px) {
+    #appeal {
+      padding: 30px 10px; } }
+  #appeal .appeal-close-overlay {
+    background: rgba(0, 0, 0, 0.65);
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    display: block; }
+  #appeal .appeal-image {
+    display: inline-block;
+    cursor: pointer;
+    position: relative; }
+  #appeal img {
+    max-width: 720px;
+    box-shadow: 0 0 30px rgba(0, 0, 0, 0.5); }
+    @media all and (max-width: 720px) {
+      #appeal img {
+        max-width: 100%;
+        box-shadow: 0; } }
+
 .slick-slide {
   outline: none !important; }
   .slick-slide a {

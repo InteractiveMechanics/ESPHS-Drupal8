@@ -55,6 +55,8 @@ $(function(){
         return null;
     }
 
+
+    // Promo for TBTW
     var cookie = getCookie('hidePopup');
     if (cookie == null || false){
         $('#promo').removeClass('hidden');
@@ -70,6 +72,20 @@ $(function(){
     });
 
 
+    // Annual Appeal experiment    
+    var urlParams = new URLSearchParams(window.location.search);
+    if (urlParams.get('appeal') == "true"){
+        $('#appeal').removeClass('hidden');
+        setTimeout(function(){ $('#appeal').addClass('in'); }, 100);
+    }
+    $(document).on('click tap', '.appeal-close-overlay', function(e) {
+        e.preventDefault();
+        $('#appeal').removeClass('in');
+        setTimeout(function(){ $('#appeal').addClass('hidden'); }, 500);
+    });
+
+
+    // Watch Preview events
     $('.watch-preview').click(function(){
         var video = $(this).data('video');
         var description = $(this).data('description');
