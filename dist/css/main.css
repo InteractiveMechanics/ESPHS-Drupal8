@@ -595,15 +595,17 @@ body.has-active-menu {
   .mobile-menu-top address {
     margin-bottom: 0px;
     padding-bottom: 0px; }
-  .mobile-menu-top h2 {
+  .mobile-menu-top h2, .mobile-menu-top h2 > a {
     cursor: pointer;
-    color: #231f20;
+    color: #231f20 !important;
     font-weight: 200;
     margin-bottom: 20px;
     font-size: 20px;
-    transition: 0.5s all; }
-    .mobile-menu-top h2:hover, .mobile-menu-top h2:focus, .mobile-menu-top h2:active {
-      color: #D62027; }
+    transition: 0.5s all;
+    border-bottom: none !important; }
+    .mobile-menu-top h2:hover, .mobile-menu-top h2:focus, .mobile-menu-top h2:active, .mobile-menu-top h2 > a:hover, .mobile-menu-top h2 > a:focus, .mobile-menu-top h2 > a:active {
+      color: #D62027 !important;
+      border-bottom: none !important; }
   .mobile-menu-top address {
     color: white;
     font-size: 13px;
