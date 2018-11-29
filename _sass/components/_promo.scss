@@ -80,11 +80,11 @@
     z-index: 100000;
     left: 0;
     right: 0;
-    padding: 100px;
+    padding: 50px 0;
     text-align: center;
 
-    @media all and (max-width: 640px) {
-        padding: 40px 20px;
+    @media all and (max-width: 720px) {
+        padding: 30px 10px;
     }
 
     .appeal-close-overlay {
@@ -94,18 +94,19 @@
         bottom: 0;
         left: 0;
         right: 0;
+        display: block;
     }
 
-    a {
+    .appeal-image {
         display: inline-block;
         cursor: pointer;
         position: relative;
     }
     img {
-        max-width: 960px;
+        max-width: 720px;
         box-shadow: 0 0 30px rgba(0,0,0,0.5);
 
-        @media all and (max-width: 960px) {
+        @media all and (max-width: 720px) {
             max-width: 100%;
             box-shadow: 0;
         }
