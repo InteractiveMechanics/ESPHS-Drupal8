@@ -63,7 +63,9 @@
 
 		.jumbotron {
 			padding: 100px 0px 0px 0px !important;
-			height:700px;
+			height: 400px;
+			overflow: hidden;
+    
 			h1 {
 				font-size: 60px;
 			    line-height: 65px;
@@ -144,8 +146,8 @@
 		}
 
 		.jumbotron {
-			padding: 10px 0px 0px 0px !important;
-			height: 400px;
+			//padding: 10px 0px 0px 0px !important;
+			//height: 400px;
 			
 			.homepage-slider-single {
 				width: 90% !important;
