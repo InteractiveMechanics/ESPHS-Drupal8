@@ -30,7 +30,7 @@
                             <div class="col-md-6">
                                 
                                 {%if press_item[0].field_lead_image.entity.filename %}
-                                	<a href="<{# path('entity.node.canonical', {'node': press_item[0].nid.value}) #}">
+                                	<a href="{{ path('entity.node.canonical', {'node': press_item[0].nid.value}) }}">
                                 		<img class="img-responsive" src="{{file_url(press_item[0].field_lead_image.entity.uri.value)}}">
                                 	</a>
                                 {% endif %}

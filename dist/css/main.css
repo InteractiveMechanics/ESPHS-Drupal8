@@ -2394,10 +2394,15 @@ sup {
       height: 605px; } }
   @media (max-width: 767px) {
     .hero-section .jumbotron {
-      height: 400px; } }
-  @media (min-width: 1200px) {
-    .hero-section .jumbotron #mobile-background {
-      display: none; } }
+      height: 190px !important;
+      overflow: hidden;
+      padding: 0 !important;
+      margin: 0 !important; } }
+  .hero-section .jumbotron #mobile-background {
+    display: none; }
+    @media (min-width: 1200px) {
+      .hero-section .jumbotron #mobile-background {
+        display: none; } }
   .hero-section .jumbotron #homepage-slider {
     height: 650px; }
   .hero-section .jumbotron .slick-dots {
@@ -2451,7 +2456,7 @@ sup {
     z-index: -1; }
     @media (max-width: 991px) {
       .hero-section .jumbotron #video-background {
-        display: none; } }
+        width: 100%; } }
   .hero-section .jumbotron #mobile-background {
     z-index: -1; }
     @media (min-width: 1200px) {
@@ -2524,6 +2529,16 @@ sup {
       background: linear-gradient(to bottom, transparent 0%, transparent 20%, rgba(0, 0, 0, 0.65) 100%), url(../../assets/homepage-aboutblock@2x.jpg) top center;
       background-size: cover;
       background-position-x: 685px; } }
+  @media (min-width: 768px) and (max-width: 991px) {
+    .about-section .jumbotron {
+      background-position-x: right; } }
+  @media (max-width: 767px) {
+    .about-section .jumbotron {
+      background: url(../../assets/homepage-aboutblock-mobile@2x.jpg) bottom center;
+      background-size: cover;
+      padding-bottom: 200px; }
+      .about-section .jumbotron h2, .about-section .jumbotron p {
+        color: black; } }
   .about-section .jumbotron h2 {
     font-weight: 200;
     font-size: 26px;
@@ -3332,7 +3347,8 @@ sup {
 
   .hero-section .jumbotron {
     padding: 100px 0px 0px 0px !important;
-    height: 700px; }
+    height: 400px;
+    overflow: hidden; }
     .hero-section .jumbotron h1 {
       font-size: 60px;
       line-height: 65px;
@@ -3373,34 +3389,31 @@ sup {
 
   .hero-section .slick-dots {
     display: none !important; }
-  .hero-section .jumbotron {
-    padding: 10px 0px 0px 0px !important;
-    height: 400px; }
-    .hero-section .jumbotron .homepage-slider-single {
-      width: 90% !important;
-      margin-left: auto !important;
-      margin-right: auto !important;
-      right: auto;
-      height: auto;
-      position: relative;
-      top: 160px; }
-      .hero-section .jumbotron .homepage-slider-single p {
-        font-size: 16px;
-        margin-bottom: 0; }
-      .hero-section .jumbotron .homepage-slider-single .slick-dotted.slick-slider {
-        margin-bottom: 0 !important; }
-    .hero-section .jumbotron h1 {
-      font-size: 40px;
-      line-height: 55px;
-      text-align: center; }
-    .hero-section .jumbotron p {
-      text-align: left; }
-      .hero-section .jumbotron p a {
-        margin-bottom: 20px;
-        display: inline-block; }
-      .hero-section .jumbotron p .btn-big {
-        width: 90%;
-        padding: 13px !important; }
+  .hero-section .jumbotron .homepage-slider-single {
+    width: 90% !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+    right: auto;
+    height: auto;
+    position: relative;
+    top: 160px; }
+    .hero-section .jumbotron .homepage-slider-single p {
+      font-size: 16px;
+      margin-bottom: 0; }
+    .hero-section .jumbotron .homepage-slider-single .slick-dotted.slick-slider {
+      margin-bottom: 0 !important; }
+  .hero-section .jumbotron h1 {
+    font-size: 40px;
+    line-height: 55px;
+    text-align: center; }
+  .hero-section .jumbotron p {
+    text-align: left; }
+    .hero-section .jumbotron p a {
+      margin-bottom: 20px;
+      display: inline-block; }
+    .hero-section .jumbotron p .btn-big {
+      width: 90%;
+      padding: 13px !important; }
 
   .mainpage-tagline {
     padding-right: 35px;
