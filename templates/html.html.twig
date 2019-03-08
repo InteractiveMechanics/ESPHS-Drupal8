@@ -309,7 +309,6 @@
 	         var month = d.getMonth() + 1;
 	         var day = d.getDate();
 	        if( 
-		        (month == 3 && day == 8) ||
 	        	(month == 12 && day == 25) || 
 	        	(month == 12 && day == 24) || 
 	        	(month == 11 && day == getThanksgivingday()) || 
@@ -317,8 +316,8 @@
 	         ) { 
 		        
 		        $('.hours-wrapper').html('Eastern State is<br/>Closed Today');
-		        $('.hours-section ul li:eq(1)').text('Eastern State is');
-		        $('.hours-section ul li:eq(0)').text('Closed Today');
+		        $('.hours-section ul li:eq(0)').text('Eastern State is');
+		        $('.hours-section ul li:eq(1)').text('Closed Today');
 		        
 	        }
 	        
